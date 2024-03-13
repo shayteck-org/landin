@@ -1,0 +1,21 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  //   adding common styles to main children(sections)
+  & > * {
+    padding: 16px;
+  }
+
+  .introductionPart1 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .introductionPart2 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}
