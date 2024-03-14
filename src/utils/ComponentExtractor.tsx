@@ -1,10 +1,11 @@
 import Button from "@/components/Button/Button";
 import Image from "@/components/Image/Image";
 import Typography from "@/components/Typography";
+import { SharedAttributes } from "@/types/model";
 
 type props = {
   info: any;
-  mode: "edit" | "stable";
+  mode: SharedAttributes["mode"];
 };
 const { Link, Text, Title } = Typography;
 

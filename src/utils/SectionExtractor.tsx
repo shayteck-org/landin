@@ -12,7 +12,7 @@ const SectionExtractor = ({ children, info }: props) => {
     case "1224":
       return (
         <div
-          className={styles.introductionPart1}
+          className={styles.aboutPart1}
           style={{
             backgroundColor:
               info.data.theme === THEME_VAR.LIGHT ? "burlywood" : "peachpuff",
@@ -24,7 +24,7 @@ const SectionExtractor = ({ children, info }: props) => {
     case "1204":
       return (
         <div
-          className={styles.introductionPart2}
+          className={styles.aboutPart2}
           style={{
             backgroundColor:
               info.data.theme === THEME_VAR.LIGHT ? "burlywood" : "peachpuff",

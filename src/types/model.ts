@@ -18,6 +18,7 @@ export type SharedAttributes = {
       width?: number;
       height?: number;
       color: string;
+      bgColor: string;
       font: string;
     };
   };

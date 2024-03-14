@@ -6,7 +6,11 @@ const Button: React.FC<
   const { onCopy, ...buttonProps } = rest;
 
   return (
-    <button onClick={onClick} {...buttonProps}>
+    <button
+      style={{ backgroundColor: data.style?.bgColor || "red" }}
+      onClick={onClick}
+      {...buttonProps}
+    >
       {data.value}
     </button>
   );
