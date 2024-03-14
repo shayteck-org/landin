@@ -9,7 +9,7 @@ const THEME_VAR = { LIGHT: "light", DARK: "dark" };
 
 const SectionExtractor = ({ children, info }: props) => {
   switch (info.elementId) {
-    case 1224:
+    case "1224":
       return (
         <div
           className={styles.introductionPart1}
@@ -21,7 +21,7 @@ const SectionExtractor = ({ children, info }: props) => {
           {children}
         </div>
       );
-    case 1204:
+    case "1204":
       return (
         <div
           className={styles.introductionPart2}

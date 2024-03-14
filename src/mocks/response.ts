@@ -3,30 +3,24 @@
 export const response = [
   {
     section: 1,
-    elementId: 1224,
+    elementId: "1224",
     data: {
       theme: "light",
       children: [
-        // {
-        //   elementId: 1000,
-        //   data: {
-        //     image_url: "",
-        //   },
-        // },
         {
-          elementId: 1001,
+          elementId: "01001",
           data: {
             value: "سودِو",
           },
         },
         {
-          elementId: 2002,
+          elementId: "02002",
           data: {
             value: "توضیحات",
           },
         },
         {
-          elementId: 3003,
+          elementId: "03003",
           data: {
             value: "لینک به یه صفحه دیگه",
             path: "/link-to",
@@ -37,41 +31,74 @@ export const response = [
   },
   {
     section: 2,
-    elementId: 1204,
+    elementId: "1204",
     data: {
       theme: "dark",
       children: [
         {
-          elementId: 1000,
+          elementId: "04000",
           data: {
             image_url: "",
           },
         },
         {
-          elementId: 1001,
+          elementId: "01002",
           data: {
             value: "سودِو",
           },
         },
         {
-          elementId: 2002,
+          elementId: "02001",
           data: {
             value: "توضیحات",
           },
         },
         {
-          elementId: 3003,
+          elementId: "03003",
           data: {
             value: "لینک",
             path: "/to-where",
           },
         },
         {
-          elementId: 1004,
+          elementId: "05000",
           data: {
             value: "لینک",
-            color: "hex",
+            style: {
+              color: "hex",
+            },
             onClick: "",
+          },
+        },
+      ],
+    },
+  },
+  {
+    section: 3,
+    elementId: "1224",
+    data: {
+      theme: "dark",
+      children: [
+        {
+          elementId: "01001",
+          data: {
+            value: "Title",
+            color: "",
+          },
+        },
+      ],
+    },
+  },
+  {
+    section: 4,
+    elementId: "1204",
+    data: {
+      theme: "dark",
+      children: [
+        {
+          elementId: "01003",
+          data: {
+            value: "Title 2",
           },
         },
       ],

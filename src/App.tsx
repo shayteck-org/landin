@@ -1,4 +1,3 @@
-import Typography from "./components/Typography";
 import { response } from "./mocks/response";
 import ComponentExtractor from "./utils/ComponentExtractor";
 import SectionExtractor from "./utils/SectionExtractor";
@@ -10,7 +9,7 @@ function App() {
       {response.map((e) => (
         <SectionExtractor key={e.section} info={e}>
           {e.data.children.map((ele) => (
-            <ComponentExtractor info={ele} key={ele.elementId} />
+            <ComponentExtractor mode="stable" info={ele} key={ele.elementId} />
           ))}
         </SectionExtractor>
       ))}
