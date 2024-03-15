@@ -7,7 +7,7 @@ const Button: React.FC<
 
   return (
     <button
-      style={{ backgroundColor: data.style?.bgColor || "red" }}
+      style={{ backgroundColor: data.style?.bgColor || "#473BF0" }}
       onClick={onClick}
       {...buttonProps}
     >

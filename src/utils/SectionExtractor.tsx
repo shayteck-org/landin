@@ -9,32 +9,32 @@ const THEME_VAR = { LIGHT: "light", DARK: "dark" };
 
 const SectionExtractor = ({ children, info }: props) => {
   switch (info.elementId) {
-    case "1224":
+    case "10001":
       return (
-        <div
-          className={styles.aboutPart1}
-          style={{
-            backgroundColor:
-              info.data.theme === THEME_VAR.LIGHT ? "burlywood" : "peachpuff",
-          }}
-        >
+        <section className={styles.aboutPart1} style={{}}>
           {children}
-        </div>
+        </section>
       );
-    case "1204":
+    case "10002":
       return (
-        <div
-          className={styles.aboutPart2}
-          style={{
-            backgroundColor:
-              info.data.theme === THEME_VAR.LIGHT ? "burlywood" : "peachpuff",
-          }}
-        >
+        <section className={styles.aboutPart2} style={{}}>
           {children}
-        </div>
+        </section>
+      );
+    case "20001":
+      return (
+        <section className={styles.someBox1} style={{}}>
+          {children}
+        </section>
+      );
+    case "20002":
+      return (
+        <section className={styles.someBox2} style={{}}>
+          {children}
+        </section>
       );
     default:
-      return <div>unknown section</div>;
+      return <section>unknown section</section>;
   }
 };
 
