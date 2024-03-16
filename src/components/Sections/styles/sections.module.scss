@@ -1,0 +1,14 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  .container {
+    max-width: 1140px;
+    margin-inline: auto;
+    width: 100%;
+    //   adding common styles to main children(sections)
+    & > section {
+      padding: 16px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
-import HeaderOne from "@/components/Sections/Headers/HeaderOne";
-import HeroSectionOne from "@/components/Sections/HeroSections/HeroSectionOne";
-import styles from "@/styles/sections.module.scss";
+import HeaderOne from "@/components/Sections/headers2/HeaderOne";
+import HeroSectionOne from "@/components/Sections/heroSections2/HeroSectionOne";
+import styles from "@/components/Sections/styles/sections.module.scss";
 
 type props = {
   info: any;
