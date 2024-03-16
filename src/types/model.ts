@@ -9,20 +9,24 @@ export interface BasicElemetProps {
 }
 
 export type SharedAttributes = {
-  elementId: string;
+  elementId?: string;
   data: {
-    value: string;
+    value?: string;
     path?: string;
     image_url?: string;
     style?: {
       width?: number;
       height?: number;
-      color: string;
-      bgColor: string;
-      font: string;
+      color?: string;
+      bgColor?: string;
+      font?: string;
     };
   };
   mode: "stable" | "edit";
+};
+
+export type SharedSection = {
+  components: any;
 };
 
 export enum onClickModel {

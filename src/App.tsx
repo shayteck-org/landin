@@ -6,7 +6,9 @@ function App() {
   return (
     <div className={styles.section}>
       {responseV1.map((e) => (
-        <SectionExtractor key={e.section} info={e} />
+        <div className={styles.container} key={e.section}>
+          <SectionExtractor info={e} />
+        </div>
       ))}
     </div>
   );

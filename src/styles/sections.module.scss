@@ -6,13 +6,14 @@
     max-width: 1140px;
     margin-inline: auto;
     width: 100%;
-  }
-  //   adding common styles to main children(sections)
-  & > section {
-    padding: 16px;
+
+    //   adding common styles to main children(sections)
+    & > section {
+      padding: 16px;
+    }
   }
 
-  .aboutPart1 {
+  .HeroSectionOne {
     box-shadow: 0 0 0 100vmax #f4f7fa;
     background: #f4f7fa;
     clip-path: inset(0 -100vmax);
@@ -27,23 +28,28 @@
       margin: auto;
     }
 
-    h1 {
-      font-size: 60px;
-      color: #161c2d;
-      margin-bottom: 24px;
+    .parent-1 {
+      h1 {
+        font-size: 60px;
+        color: #161c2d;
+        margin-bottom: 24px;
+      }
+
+      p {
+        font-size: 19px;
+        color: #161c2d;
+        margin-bottom: 64px;
+      }
+
+      button {
+        float: left;
+        color: #fff;
+        font-size: 19px;
+        padding: 12px 32px;
+        width: fit-content;
+      }
     }
-    p {
-      font-size: 19px;
-      color: #161c2d;
-      margin-bottom: 64px;
-    }
-    button {
-      float: left;
-      color: #fff;
-      font-size: 19px;
-      padding: 12px 32px;
-      width: fit-content;
-    }
+
     .parent-2 {
       position: relative;
 
