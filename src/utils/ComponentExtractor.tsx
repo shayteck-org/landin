@@ -1,7 +1,7 @@
 import Button from "@/components/Button/Button";
 import Image from "@/components/Image/Image";
 import Typography from "@/components/Typography";
-import { SharedAttributes } from "@/types/model";
+import { SharedAttributes, onClickModel } from "@/types/model";
 
 type props = {
   info: any;
@@ -44,9 +44,7 @@ const ComponentExtractor = ({ info, mode }: props) => {
           data={info.data}
           elementId={info.elementId}
           mode={mode}
-          onClick={() => {
-            alert("clicked");
-          }}
+          onClickAction={onClickModel.openDialog1}
         />
       );
     default:

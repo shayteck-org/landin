@@ -1,0 +1,23 @@
+.editor {
+  display: flex;
+  position: relative;
+
+  input {
+    outline: 0 !important;
+    border: 0;
+    background: transparent;
+    background-color: transparent;
+    border: dashed 2px var(--text);
+    border-radius: 5px;
+    padding: 4px 6px;
+    width: 100% !important;
+  }
+  button {
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-43%);
+    background-color: transparent;
+    padding: 0 !important;
+  }
+}
