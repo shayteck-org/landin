@@ -3,7 +3,7 @@ import { ButtonModel } from "./model";
 
 const Button: React.FC<
   ButtonModel & React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ data, mode, elementId, onClickAction, ...rest }) => {
+> = ({ data, elementId, onClickAction, ...rest }) => {
   const { onCopy, ...buttonProps } = rest;
 
   function onClickActionFinder(onClickAction: onClickModel): void {

@@ -5,7 +5,6 @@ import { SharedAttributes, onClickModel } from "@/types/model";
 
 type props = {
   info: any;
-  mode: SharedAttributes["mode"];
 };
 const { Link, Text, Title } = Typography;
 
@@ -14,12 +13,11 @@ function TextFinder(id: string): "paragraph" | "span" {
   if (toNumebr % 2 === 1) return "paragraph";
   return "span";
 }
-const ComponentExtractor = ({ info, mode }: props) => {
+const ComponentExtractor = ({ info }: props) => {
   switch (info.elementId.slice(0, 2)) {
     case "01":
       return (
         <Title
-          mode={mode}
           data={info.data}
           elementId={info.elementId}
           level={parseInt(info.elementId.slice(-1))}
@@ -28,22 +26,20 @@ const ComponentExtractor = ({ info, mode }: props) => {
     case "02":
       return (
         <Text
-          mode={mode}
           textType={TextFinder(info.elementId)}
           data={info.data}
           elementId={info.elementId}
         />
       );
     case "03":
-      return <Link mode={mode} data={info.data} elementId={info.elementId} />;
+      return <Link data={info.data} elementId={info.elementId} />;
     case "04":
-      return <Image data={info.data} elementId={info.elementId} mode={mode} />;
+      return <Image data={info.data} elementId={info.elementId} />;
     case "05":
       return (
         <Button
           data={info.data}
           elementId={info.elementId}
-          mode={mode}
           onClickAction={onClickModel.openDialog1}
         />
       );

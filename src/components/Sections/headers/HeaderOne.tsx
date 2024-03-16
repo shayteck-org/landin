@@ -55,23 +55,19 @@ const HeaderOne: React.FC<HeaderProps> = ({ components }) => {
     <header className={styles.HeaderOne}>
       <ul>
         <li>
-          <Link mode="stable" data={links[0].home.data} />
+          <Link data={links[0].home.data} />
         </li>
         <li>
-          <Link mode="stable" data={links[0].services.data} />
+          <Link data={links[0].services.data} />
         </li>
         <li>
-          <Link mode="stable" data={links[0].resume.data} />
+          <Link data={links[0].resume.data} />
         </li>
         <li>
-          <Link mode="stable" data={links[0].contact.data} />
+          <Link data={links[0].contact.data} />
         </li>
       </ul>
-      <Button
-        data={button.data}
-        mode="stable"
-        onClickAction={button.data.onClick}
-      >
+      <Button data={button.data} onClickAction={button.data.onClick}>
         {button.data.value}
       </Button>
     </header>
