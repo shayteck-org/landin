@@ -1,7 +1,7 @@
 import Button from "@/components/Button/Button";
 import Typography from "@/components/Typography";
 import { SharedSection, onClickModel } from "@/types/model";
-import styles from "@/components/Sections/Headers/header.module.scss";
+import styles from "@/components/Sections/headers/header.module.scss";
 
 const { Link, Text, Title } = Typography;
 

@@ -1,6 +1,6 @@
 import { responseV1 } from "./mocks/responseV1";
 import SectionExtractor from "./utils/SectionExtractor";
-import styles from "@/styles/sections.module.scss";
+import styles from "@/components/Sections/styles/sections.module.scss";
 
 function App() {
   return (

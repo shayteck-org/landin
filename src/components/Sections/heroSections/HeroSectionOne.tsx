@@ -1,5 +1,5 @@
 import { SharedSection, onClickModel } from "@/types/model";
-import styles from "@/components/Sections/HeroSections/heroSection.module.scss";
+import styles from "@/components/Sections/heroSections/heroSection.module.scss";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button/Button";
 import Image from "@/components/Image/Image";

@@ -1,5 +1,5 @@
-import HeaderOne from "@/components/Sections/headers2/HeaderOne";
-import HeroSectionOne from "@/components/Sections/heroSections2/HeroSectionOne";
+import HeaderOne from "@/components/Sections/headers/HeaderOne";
+import HeroSectionOne from "@/components/Sections/heroSections/HeroSectionOne";
 import styles from "@/components/Sections/styles/sections.module.scss";
 
 type props = {
