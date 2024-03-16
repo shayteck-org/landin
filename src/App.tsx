@@ -1,4 +1,4 @@
-import { responseV1 } from "../responseV1";
+import { responseV1 } from "./mocks/responseV1";
 import SectionExtractor from "./utils/SectionExtractor";
 import styles from "@/styles/sections.module.scss";
 

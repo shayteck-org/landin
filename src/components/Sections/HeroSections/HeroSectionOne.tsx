@@ -1,4 +1,4 @@
-import { SharedSection } from "@/types/model";
+import { SharedSection, onClickModel } from "@/types/model";
 import styles from "@/styles/sections.module.scss";
 import ComponentExtractor from "@/utils/ComponentExtractor";
 import Typography from "@/components/Typography";
@@ -25,10 +25,10 @@ interface componentsProps extends SharedSection {
       elementId: string;
       data: {
         value: string;
-        onClick: () => {};
         style: {
-          bgColor?: string;
+          bgColor: string;
         };
+        onClick: onClickModel;
       };
     };
     image: {
@@ -45,7 +45,7 @@ const HeroSectionOne: React.FC<componentsProps> = ({ components }) => {
   const { title, button, description, image } = components;
 
   return (
-    <section className={styles.HeroSectionOne}>
+    <section id="#" className={styles.HeroSectionOne}>
       <div className={styles["parent-1"]}>
         <Title
           mode="stable"
@@ -54,7 +54,11 @@ const HeroSectionOne: React.FC<componentsProps> = ({ components }) => {
           level={1}
         />
         <Text textType="paragraph" mode="stable" data={description.data} />
-        <Button data={button.data} mode="stable" onClick={button.data.onClick}>
+        <Button
+          data={button.data}
+          mode="stable"
+          onClickAction={button.data.onClick}
+        >
           {button.data.value}
         </Button>
       </div>

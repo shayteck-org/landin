@@ -30,8 +30,8 @@ export type SharedSection = {
 };
 
 export enum onClickModel {
-  openDialog1 = "openDialog1",
-  openDialog2 = "openDialog2",
-  openDialog3 = "openDialog3",
-  openDialog4 = "openDialog4",
+  openDialog1 = 1,
+  openDialog2 = 2,
+  openDialog3 = 3,
+  openDialog4 = 4,
 }

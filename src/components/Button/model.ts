@@ -1,6 +1,6 @@
-import { SharedAttributes } from "@/types/model";
+import { SharedAttributes, onClickModel } from "@/types/model";
 
 export interface ButtonModel extends SharedAttributes {
   //   v1.0
-  onClick: () => void;
+  onClickAction: onClickModel;
 }

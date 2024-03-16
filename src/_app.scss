@@ -6,6 +6,8 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
+  font-size: 19px;
+  padding: 12px 32px;
 }
 
 :where(h1, h2, h3, h4, h5, h6, p, span) {
