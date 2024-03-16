@@ -75,7 +75,7 @@ export const responseV1 = [
       image: {
         elementId: "04003",
         data: {
-          image_url: "/src/assets/images/sectionP1.png",
+          image_url: "/sectionP1.png",
           value: "لینک به یه صفحه دیگه",
         },
       },
