@@ -46,23 +46,14 @@ const HeroSectionOne: React.FC<componentsProps> = ({ components }) => {
   return (
     <section id="#" className={styles.HeroSectionOne}>
       <div className={styles["parent-1"]}>
-        <Title
-          mode="stable"
-          elementId={title.elementId}
-          data={title.data}
-          level={1}
-        />
-        <Text textType="paragraph" mode="stable" data={description.data} />
-        <Button
-          data={button.data}
-          mode="stable"
-          onClickAction={button.data.onClick}
-        >
+        <Title elementId={title.elementId} data={title.data} level={1} />
+        <Text textType="paragraph" data={description.data} />
+        <Button data={button.data} onClickAction={button.data.onClick}>
           {button.data.value}
         </Button>
       </div>
       <div className={styles["parent-2"]}>
-        <Image data={image.data} mode="stable" />
+        <Image data={image.data} />
       </div>
     </section>
   );

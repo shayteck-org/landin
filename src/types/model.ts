@@ -22,7 +22,6 @@ export type SharedAttributes = {
       font?: string;
     };
   };
-  mode: "stable" | "edit";
 };
 
 export type SharedSection = {
@@ -35,3 +34,12 @@ export enum onClickModel {
   openDialog3 = 3,
   openDialog4 = 4,
 }
+
+export type Mode = "stable" | "edit";
+
+export type editMode = {
+  edit: string;
+  setEdit: Dispatch<SetStateAction<string>>;
+  mode?: Mode;
+  setMode: Dispatch<SetStateAction<Mode>>;
+};

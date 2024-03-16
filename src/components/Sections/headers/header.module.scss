@@ -17,6 +17,7 @@
   ul {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 24px;
 
     * {
@@ -27,7 +28,7 @@
   }
 
   button {
-    padding: 12px 48px !important;
+    padding: 12px 48px;
     color: var(--white);
     font-size: 17px;
     font-weight: 700;
