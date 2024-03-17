@@ -42,4 +42,5 @@ export type editMode = {
   setEdit: Dispatch<SetStateAction<string>>;
   mode?: Mode;
   setMode: Dispatch<SetStateAction<Mode>>;
+  defaultValues?: SharedAttributes["data"];
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { LinkModal } from "../model";
 import useEdit from "@/hooks/useEdit";
+import { pageModeDetector } from "@/config/utils/pageDetector";
 
 const Link: React.FC<
   LinkModal & React.AnchorHTMLAttributes<HTMLAnchorElement>
@@ -10,19 +11,30 @@ const Link: React.FC<
   const { EditSign, Editor, mode, setMode } = useEdit({
     edit: value,
     setEdit: setValue,
-    firstValue: data.value || "",
+    firstData: data || "",
   });
 
-  if (mode === "stable")
-    return (
-      <div className={className} style={{ display: "flex", gap: 6 }}>
-        <EditSign setMode={setMode} />
-        <a href={data.path} {...anchorProps}>
-          {value}
-        </a>
-      </div>
-    );
-  return <Editor edit={value} setEdit={setValue} setMode={setMode} />;
+  return (
+    <div className={className} style={{ display: "flex", gap: 6 }}>
+      <EditSign setMode={setMode} />
+      <a
+        href={data.path}
+        {...anchorProps}
+        onClick={(e) => {
+          pageModeDetector() && e.preventDefault();
+        }}
+      >
+        {value}
+      </a>
+      <Editor
+        defaultValues={data}
+        edit={value}
+        setEdit={setValue}
+        setMode={setMode}
+        mode={mode}
+      />
+    </div>
+  );
 };
 
 export default Link;
