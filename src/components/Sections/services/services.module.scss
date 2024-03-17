@@ -1,0 +1,78 @@
+.ServicesOne {
+  gap: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  .parent-1 {
+    max-width: 50%;
+    margin-inline: auto;
+    text-align: center;
+
+    p {
+      color: var(--red-title);
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+    h2 {
+      font-size: 36px;
+      line-height: 52px;
+    }
+  }
+  .parent-2 {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    .card {
+      padding: 32px;
+      border-radius: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .cardTitle {
+        font-size: 24px;
+        font-weight: 400;
+        color: var(--white);
+        margin-bottom: 16px;
+      }
+      .cardDescription {
+        &:where(p, span) {
+          opacity: 0.65;
+        }
+        color: white;
+        font-size: 17px;
+        text-align: center;
+        margin-bottom: 14px;
+      }
+      .cardImage {
+        * {
+          aspect-ratio: 1;
+          width: 140px;
+        }
+      }
+      .cardLink {
+        display: block;
+        margin-top: auto;
+        * {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    background: url("/pattern.svg") no-repeat;
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    bottom: 0;
+    right: -15px;
+    z-index: -1;
+  }
+}

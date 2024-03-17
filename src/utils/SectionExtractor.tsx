@@ -1,5 +1,6 @@
 import HeaderOne from "@/components/Sections/headers/HeaderOne";
 import HeroSectionOne from "@/components/Sections/heroSections/HeroSectionOne";
+import ServicesOne from "@/components/Sections/services/ServicesOne";
 import styles from "@/components/Sections/styles/sections.module.scss";
 
 type props = {
@@ -14,7 +15,7 @@ const SectionExtractor = ({ info }: props) => {
     case "00000":
       return <HeaderOne components={info.data} />;
     case "20001":
-      return <section className={styles.someBox1} style={{}}></section>;
+      return <ServicesOne components={info.data} />;
     case "20002":
       return <section className={styles.someBox2} style={{}}></section>;
     default:

@@ -4,7 +4,7 @@ import useEdit from "@/hooks/useEdit";
 
 const Link: React.FC<
   LinkModal & React.AnchorHTMLAttributes<HTMLAnchorElement>
-> = ({ data, elementId, ...rest }) => {
+> = ({ data, elementId, className, ...rest }) => {
   const { ...anchorProps } = rest;
   const [value, setValue] = useState<string>(data.value || "");
   const { EditSign, Editor, mode, setMode } = useEdit({
@@ -15,7 +15,7 @@ const Link: React.FC<
 
   if (mode === "stable")
     return (
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className={className} style={{ display: "flex", gap: 6 }}>
         <EditSign setMode={setMode} />
         <a href={data.path} {...anchorProps}>
           {value}

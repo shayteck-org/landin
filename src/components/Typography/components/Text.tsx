@@ -2,12 +2,12 @@ import { TextModel } from "../model";
 
 const Text: React.FC<
   TextModel & React.ParamHTMLAttributes<HTMLButtonElement>
-> = ({ data, textType = "paragraph" }) => {
+> = ({ data, className, textType = "paragraph" }) => {
   switch (textType) {
     case "paragraph":
-      return <p>{data.value}</p>;
+      return <p className={className}>{data.value}</p>;
     case "span":
-      return <span>{data.value}</span>;
+      return <span className={className}>{data.value}</span>;
   }
 };
 
