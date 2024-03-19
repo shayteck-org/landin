@@ -1,5 +1,6 @@
 import HeaderOne from "@/components/Sections/headers/HeaderOne";
 import HeroSectionOne from "@/components/Sections/heroSections/HeroSectionOne";
+import RatingSection from "@/components/Sections/ratings/rating1";
 import ServicesOne from "@/components/Sections/services/ServicesOne";
 import styles from "@/components/Sections/styles/sections.module.scss";
 
@@ -16,8 +17,8 @@ const SectionExtractor = ({ info }: props) => {
       return <HeaderOne components={info.data} />;
     case "20001":
       return <ServicesOne components={info.data} />;
-    case "20002":
-      return <section className={styles.someBox2} style={{}}></section>;
+    case "30001":
+      return <RatingSection components={info.data} />;
     default:
       return <section>unknown section</section>;
   }

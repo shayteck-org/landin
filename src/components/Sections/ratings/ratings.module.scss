@@ -1,0 +1,44 @@
+.customSlider {
+  // default variables
+  --swiper-theme-color: var(--primary-color);
+  --swiper-pagination-bottom: 64px;
+
+  .commentCard {
+    display: flex !important;
+    gap: 80px;
+    margin-bottom: 80px;
+
+    .commentImage {
+      * {
+        width: 164px;
+      }
+    }
+
+    .commentSection {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      :where(p) {
+        color: var(--text);
+      }
+
+      .ant-rate {
+        align-self: end;
+        direction: ltr !important;
+      }
+
+      .commentText {
+        margin-top: 4px;
+        font-size: 24px;
+      }
+
+      .commentAuthor {
+        margin-top: 6px;
+        align-self: end;
+        font-size: 17px;
+      }
+    }
+  }
+}
