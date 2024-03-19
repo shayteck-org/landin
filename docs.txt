@@ -1,0 +1,49 @@
+type component = {
+  elementId: string;
+  data: {
+    value: string;
+  };
+};
+
+elementId: {
+    "01xxL" -> title => : L : level; L can be 1 to 6 
+    "02xxT" -> text => : T : span | p; if T is 1 paragraph else span
+    "03xxx" -> link;
+    "04xxx" -> Image;
+    "05xxx" -> Button 
+}
+
+  export enum onClickModel {
+    openDialog1 = 1,
+    openDialog2 = 2,
+    openDialog3 = 3,
+    openDialog4 = 4,
+  }
+  
+
+//===== tasks and isseu =====//
+
+1. how to manage data for cards(concept of design)
+  1. i have to show them as editable content : {
+    so if i wanna manage them by whole card || manage them by common component 
+  }
+
+2. what can be change in modals ...
+
+3. do any text's font can change directly?(the main font is vazir and this p is b nazanin,is it right?)
+
+4. what is the concept of rate section ? "./tempRes.ts"
+
+5. what about image size in resume?
+  1. the link for more resume redirect to ...?
+  2. concept of design!
+
+6. social link need another design for edit modal...
+
+7. about us section => * {pos : abs}
+
+8. does header need links as array?or object with multiple children
+
+9. how to manage a linked name in footer (تمامی حقوق این وبسایت متعلق به سودِو می باشد)(sodev)
+
+--------------------------------
