@@ -102,11 +102,27 @@ export const responseV1 = [
         {
           data: {
             id: "1635116846444634864",
-            title: "محتوا نویسی",
-            description:
-              "ت و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد",
-            image_url: "/sectionP1.png",
-            path: "/another-page",
+            title: {
+              data: {
+                value: "محتوا نویسی",
+              },
+            },
+            description: {
+              data: {
+                value:
+                  "ت و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد",
+              },
+            },
+            image: {
+              data: {
+                image_url: "/sectionP1.png",
+              },
+            },
+            link: {
+              data: {
+                path: "/another-page",
+              },
+            },
             style: {
               bgColor: "#F64B4B",
             },
@@ -114,12 +130,28 @@ export const responseV1 = [
         },
         {
           data: {
-            id: "163511684644564694864",
-            title: "توسعه ی وبسایت",
-            description:
-              "ت و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد",
-            image_url: "/sectionP1.png",
-            path: "/another-page",
+            id: "16351168464453294864",
+            title: {
+              data: {
+                value: "محتوا نویسی",
+              },
+            },
+            description: {
+              data: {
+                value:
+                  "ت و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد",
+              },
+            },
+            image: {
+              data: {
+                image_url: "/sectionP1.png",
+              },
+            },
+            link: {
+              data: {
+                path: "/another-page",
+              },
+            },
             style: {
               bgColor: "#473BF0",
             },
@@ -127,12 +159,28 @@ export const responseV1 = [
         },
         {
           data: {
-            id: "163254784644564694864",
-            title: "طراحی رابط کاربری",
-            description:
-              "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم اس",
-            image_url: "/sectionP1.png",
-            path: "/another-page",
+            id: "16325478461884484694864",
+            title: {
+              data: {
+                value: "محتوا نویسی",
+              },
+            },
+            description: {
+              data: {
+                value:
+                  "ت و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد",
+              },
+            },
+            image: {
+              data: {
+                image_url: "/sectionP1.png",
+              },
+            },
+            link: {
+              data: {
+                path: "/another-page",
+              },
+            },
             style: {
               bgColor: "#68D585",
             },
