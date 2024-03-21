@@ -292,4 +292,25 @@ export const responseV1 = [
       },
     },
   },
+  {
+    section: 5,
+    elementId: "50001",
+    data: {
+      aveScore: {
+        data: {
+          value: "4.9",
+        },
+      },
+      satisfing: {
+        data: {
+          value: "92%",
+        },
+      },
+      customerAmout: {
+        data: {
+          value: "1M+",
+        },
+      },
+    },
+  },
 ];

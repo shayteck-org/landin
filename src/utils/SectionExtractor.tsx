@@ -3,6 +3,7 @@ import HeaderOne from "@/components/Sections/headers/HeaderOne";
 import HeroSectionOne from "@/components/Sections/heroSections/HeroSectionOne";
 import RatingSectionOne from "@/components/Sections/ratings/rating1";
 import ServicesOne from "@/components/Sections/services/ServicesOne";
+import StaticOneSection from "@/components/Sections/statis/StatisOne";
 import styles from "@/components/Sections/styles/sections.module.scss";
 
 type props = {
@@ -22,6 +23,8 @@ const SectionExtractor = ({ info }: props) => {
       return <RatingSectionOne components={info.data} />;
     case "40001":
       return <AboutUsOne components={info.data} />;
+    case "50001":
+      return <StaticOneSection components={info.data} />;
     default:
       return <section>unknown section</section>;
   }

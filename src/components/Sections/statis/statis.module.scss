@@ -1,0 +1,28 @@
+.statisOne {
+  max-width: 1040px;
+  margin-inline: auto;
+  margin-top: 40px;
+
+  .parent-1 {
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+
+      p {
+        font-family: Gilroy;
+        color: var(--text);
+        font-weight: 700;
+        font-size: 48px;
+        text-align: center;
+      }
+      span {
+        display: block;
+        font-size: 19px;
+        font-weight: 400;
+        text-align: center;
+      }
+    }
+  }
+}
