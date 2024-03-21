@@ -1,6 +1,7 @@
+import AboutUsOne from "@/components/Sections/aboutUs/AboutUs1";
 import HeaderOne from "@/components/Sections/headers/HeaderOne";
 import HeroSectionOne from "@/components/Sections/heroSections/HeroSectionOne";
-import RatingSection from "@/components/Sections/ratings/rating1";
+import RatingSectionOne from "@/components/Sections/ratings/rating1";
 import ServicesOne from "@/components/Sections/services/ServicesOne";
 import styles from "@/components/Sections/styles/sections.module.scss";
 
@@ -18,7 +19,9 @@ const SectionExtractor = ({ info }: props) => {
     case "20001":
       return <ServicesOne components={info.data} />;
     case "30001":
-      return <RatingSection components={info.data} />;
+      return <RatingSectionOne components={info.data} />;
+    case "40001":
+      return <AboutUsOne components={info.data} />;
     default:
       return <section>unknown section</section>;
   }

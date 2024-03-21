@@ -32,15 +32,14 @@ type componentsProps = {
   };
 };
 
-const RatingSection: React.FC<componentsProps> = ({ components }) => {
+const RatingSectionOne: React.FC<componentsProps> = ({ components }) => {
   const { content } = components;
-  console.log(content);
 
   return (
-    <div>
+    <div style={{ borderBottom: "2px solid #E7E9ED", marginBottom: 80 }}>
       <CommentSlider navigation={false} slides={content} />
     </div>
   );
 };
 
-export default RatingSection;
+export default RatingSectionOne;
