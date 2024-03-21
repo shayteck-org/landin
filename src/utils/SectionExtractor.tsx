@@ -5,6 +5,7 @@ import RatingSectionOne from "@/components/Sections/ratings/rating1";
 import ServicesOne from "@/components/Sections/services/ServicesOne";
 import StaticOneSection from "@/components/Sections/statis/StatisOne";
 import styles from "@/components/Sections/styles/sections.module.scss";
+import WhyUsOne from "@/components/Sections/whyUs/WhyUsOne";
 
 type props = {
   info: any;
@@ -25,6 +26,8 @@ const SectionExtractor = ({ info }: props) => {
       return <AboutUsOne components={info.data} />;
     case "50001":
       return <StaticOneSection components={info.data} />;
+    case "60001":
+      return <WhyUsOne components={info.data} />;
     default:
       return <section>unknown section</section>;
   }

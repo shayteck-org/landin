@@ -1,0 +1,46 @@
+.whyUsOne-slider {
+  --swiper-navigation-size: 20px;
+  --swiper-theme-color: #00000091;
+
+  .itemContainer {
+    flex-flow: row nowrap;
+    gap: 16px;
+
+    p {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    span {
+      font-size: 17px;
+    }
+  }
+}
+
+.whyUsOne {
+  padding-block: 120px !important;
+  box-shadow: 0 0 0 100vmax #f4f7fa;
+  background: #f4f7fa;
+  clip-path: inset(0 -100vmax);
+  gap: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  .parent-1 {
+    max-width: 50%;
+    margin-inline: auto;
+    text-align: center;
+
+    p {
+      color: var(--red-title);
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+    h2 {
+      font-size: 36px;
+      line-height: 52px;
+      margin-bottom: 36px;
+    }
+  }
+}
