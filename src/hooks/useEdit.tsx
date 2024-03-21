@@ -1,13 +1,14 @@
 import { Mode, SharedAttributes, editMode } from "@/types/model";
-import EditSign from "@/utils/EditSign";
-import EditModal from "@/utils/editModal";
-import Editor from "@/utils/editValue";
+import EditSign from "@/utils/modals/EditSign";
+import EditModal from "@/utils/modals/editModal";
+import Editor from "@/utils/modals/editValue";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 type editHooks = {
   edit: string;
   setEdit: Dispatch<SetStateAction<string>>;
-  firstData: SharedAttributes["data"];
+  firstData: any;
+  // firstData: SharedAttributes["data"];
 };
 
 const useEdit = ({ edit, setEdit, firstData }: editHooks) => {

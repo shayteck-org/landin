@@ -1,4 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
+
+export type EditProvider = {
+  mode: Mode;
+  setMode: Dispatch<SetStateAction<Mode>>;
+  state: any;
+  setState: Dispatch<SetStateAction<any>>;
+};
+
 export type SharedContextModel = {
   user: string;
   setUser: Dispatch<SetStateAction<string>>;
@@ -38,9 +46,10 @@ export enum onClickModel {
 export type Mode = "stable" | "edit";
 
 export type editMode = {
-  edit: string;
-  setEdit: Dispatch<SetStateAction<string>>;
+  edit: any;
+  setEdit: Dispatch<SetStateAction<any>>;
   mode?: Mode;
   setMode: Dispatch<SetStateAction<Mode>>;
-  defaultValues?: SharedAttributes["data"];
+  defaultValues?: any;
+  // defaultValues?: SharedAttributes["data"];
 };
