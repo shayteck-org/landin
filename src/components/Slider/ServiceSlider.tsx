@@ -67,30 +67,21 @@ export default function ServicesSlider({ slides, navigation = true }: props) {
           className={styles.card}
         >
           <div className={styles.cardImage}>
-            <Image
-              data={{ ...item.data.image.data, value: "یه متن جایگزین" }}
-            />
+            <img src={item.data.image.data.image_url} alt={"یه متن جایگزین"} />
           </div>
-          <Title
-            className={styles.cardTitle}
-            level={2}
-            data={item.data.title.data}
-          />
-          <Text
-            className={styles.cardDescription}
-            data={item.data.description.data}
-            textType="paragraph"
-          />
+          <h2 className={styles.cardTitle}>{item.data.title.data.value}</h2>
+          <p className={styles.cardDescription}>
+            {item.data.description.data.value}
+          </p>
 
           <Row style={{ marginTop: "auto", alignItems: "center" }} gutter={8}>
             <Col style={{ display: "flex", alignItems: "center" }}>
               <img src={tailRight} alt="arrowKey" />
             </Col>
             <Col>
-              <Link
-                className={styles.cardLink}
-                data={{ ...item.data.link.data, value: "اطلاعات بیشتر" }}
-              />
+              <a href={item.data.link.data.path} className={styles.cardLink}>
+                اطلاعات بیشتر
+              </a>
             </Col>
           </Row>
         </SwiperSlide>

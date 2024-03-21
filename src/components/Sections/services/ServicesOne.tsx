@@ -51,39 +51,11 @@ const ServicesOne: React.FC<componentsProps> = ({ components }) => {
   return (
     <section id="services" className={styles.ServicesOne}>
       <div className={styles["parent-1"]}>
-        <Text textType="paragraph" data={sectionTitle.data} />
-        <Title elementId={title.elementId} data={title.data} level={2} />
+        <p>{sectionTitle.data.value}</p>
+        <h2>{title.data.value}</h2>
       </div>
       <div className={styles["parent-2"]}>
         <ServicesSlider navigation={false} slides={content} />
-        {/* {content.map((card) => (
-          <div
-            style={{
-              backgroundColor: card.data.style.bgColor || "var(--white)",
-            }}
-            key={card.data.id}
-            className={styles.card}
-          >
-            <div className={styles.cardImage}>
-              <img src="/sectionP1.png" />
-            </div>
-            <Title
-              className={styles.cardTitle}
-              level={2}
-              data={card.data.title.data}
-            />
-            <Text
-              className={styles.cardDescription}
-              data={card.data.description.data}
-              textType="paragraph"
-            />
-
-            <Link
-              className={styles.cardLink}
-              data={{ ...card.data.link.data, value: "اطلاعات بیشتر" }}
-            />
-          </div>
-        ))} */}
       </div>
     </section>
   );
