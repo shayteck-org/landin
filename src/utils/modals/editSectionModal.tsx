@@ -272,7 +272,12 @@ const EditSectionModal: React.FC<editMode> = ({
         title={nestedModal.id === "0" ? "افزودن مورد جدید" : "ویرایش سرویس"}
         open={nestedModal.modal}
         onCancel={() => {
-          toggleNestedModal({ ...nestedModal, id: "-1", modal: false });
+          nestedForm.resetFields();
+          toggleNestedModal({
+            data: freeNestedModalData,
+            id: "-1",
+            modal: false,
+          });
         }}
         okButtonProps={{ style: { display: "none" } }}
         cancelButtonProps={{ style: { width: "100%" } }}
