@@ -35,14 +35,18 @@
   }
 
   @media (width < 768px) {
+    gap: 16px;
+
     ul {
       * {
         font-size: 12px;
       }
+      gap: 14px;
     }
 
-    button{
+    button {
       font-size: 12px;
+      padding: 12px 24px;
     }
   }
 }
