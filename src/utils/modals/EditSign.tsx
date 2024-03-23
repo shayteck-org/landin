@@ -2,15 +2,14 @@ import { pageModeDetector } from "@/config/utils/pageDetector";
 import { Mode } from "@/types/model";
 import { Dispatch, SetStateAction } from "react";
 
+import "@/styles/_app.scss";
+
 const EditSign = (props: { setMode: Dispatch<SetStateAction<Mode>> }) => {
   const { setMode } = props;
 
   if (pageModeDetector())
     return (
-      <span
-        onClick={() => setMode("edit")}
-        style={{ cursor: "pointer", display: "block", marginInline: 6 }}
-      >
+      <span className="editSign" onClick={() => setMode("edit")}>
         ✏️
       </span>
     );
