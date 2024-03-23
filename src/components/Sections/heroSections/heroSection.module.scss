@@ -4,13 +4,23 @@
   clip-path: inset(0 -100vmax);
   display: grid;
   gap: 64px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 50%);
   justify-content: center;
   min-height: 100vh;
+
+  @media (width < 968px) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 
   & > div {
     width: 100%;
     margin: auto;
+
+    @media (width < 968px) {
+      margin: 0;
+    }
   }
 
   .parent-1 {
@@ -30,16 +40,34 @@
       float: left;
       color: var(--white);
     }
+
+    @media (width < 968px) {
+      order: 1;
+      h1 {
+        font-size: 33px;
+      }
+      p {
+        font-size: 13px;
+      }
+
+      button {
+        font-size: 13px;
+      }
+    }
   }
 
   .parent-2 {
     position: relative;
+    display: flex;
 
     img {
       display: block;
       margin-inline: auto;
       z-index: 3;
       position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
     }
     &::before {
       content: "";
@@ -51,6 +79,21 @@
       top: -25px;
       left: 20%;
       z-index: 1;
+
+      @media (width < 968px) {
+        top: 100px;
+      }
+    }
+
+    @media (width < 968px) {
+      height: 100%;
+
+      img {
+        width: 80%;
+        margin-inline: 0;
+        margin-right: auto;
+        margin-top: auto;
+      }
     }
   }
 }
