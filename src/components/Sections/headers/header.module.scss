@@ -33,4 +33,16 @@
     font-size: 17px;
     font-weight: 700;
   }
+
+  @media (width < 768px) {
+    ul {
+      * {
+        font-size: 12px;
+      }
+    }
+
+    button{
+      font-size: 12px;
+    }
+  }
 }
