@@ -14,9 +14,10 @@ const objectMaker = (
     case "image":
       data = { image_url: form.getFieldValue(key) };
       break;
-    case "typography":
+    case "typography": {
       data = { value: form.getFieldValue(key) };
       break;
+    }
     case "link":
       data = { path: form.getFieldValue(key) };
       break;

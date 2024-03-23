@@ -1,4 +1,15 @@
 .editor {
   button {
   }
+
+  .showImagePopover {
+    width: 128px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: dashed 1px var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
 }

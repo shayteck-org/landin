@@ -18,8 +18,11 @@ import { useForm } from "antd/es/form/Form";
 import PreviewItemDetails from "@/common/previewItem";
 import UploadPhoto from "@/common/upload";
 import useObjectMaker from "@/hooks/useObjectMaker";
-import { SassColor } from "sass";
 import { PresetColors } from "antd/es/theme/internal";
+import ImagePopOver from "./ImagePopover";
+import ImageLibraryByType from "@/components/Image/ImageLibrary/ImageLibraries";
+
+let freeNestedModalData = { image: { data: { image_url: "" } } };
 
 const EditSectionModal: React.FC<editMode> = ({
   edit,
@@ -31,16 +34,18 @@ const EditSectionModal: React.FC<editMode> = ({
   const [modal, toggle] = useState<boolean>(false);
   const [nestedModal, toggleNestedModal] = useState<{
     modal: boolean;
-    id: number;
+    id: string;
+    data: any;
   }>({
+    data: freeNestedModalData,
     modal: false,
-    id: -1,
+    id: "-1",
   });
-  const [allChildren, setAllChildren] = useState<any[]>(edit?.content || []);
 
+  const [allChildren, setAllChildren] = useState<any[]>(edit?.content || []);
+  const [openPopover, setOpenPopover] = useState<boolean>(false);
   const [form] = useForm();
   const [nestedForm] = useForm();
-  const [state, setState] = useState<Partial<any>>({});
 
   const editSectionObject = useObjectMaker(form);
   const createSectionObject = useObjectMaker(nestedForm);
@@ -72,16 +77,48 @@ const EditSectionModal: React.FC<editMode> = ({
   }
 
   const addNewServices = async (values: any) => {
-    if (nestedModal.id > 0) {
+    const { bgColor, ...rest } = values;
+    if (nestedModal.id !== "0") {
+      const childIndex = allChildren.findIndex(
+        (child) => child.data.id === nestedModal.id
+      );
+      if (childIndex !== -1) {
+        const updatedChild = {
+          ...allChildren[childIndex],
+          data: {
+            id: nestedModal.id,
+            title: createSectionObject({ key: "title", type: "typography" }),
+            link: createSectionObject({ key: "link", type: "link" }),
+            image: {
+              data: {
+                image_url: nestedModal.data.image.data.image_url,
+              },
+            },
+            description: createSectionObject({
+              key: "description",
+              type: "typography",
+            }),
+            style: {
+              bgColor:
+                typeof bgColor === "string" ? bgColor : `#${bgColor.toHex()}`,
+            },
+          },
+        };
+
+        setAllChildren((prevChildren) => {
+          const updatedChildren = [...prevChildren];
+          updatedChildren[childIndex] = updatedChild;
+          return updatedChildren;
+        });
+      }
     } else {
-      const { color, ...rest } = values;
       const newChild = {
         data: {
           title: createSectionObject({ key: "title", type: "typography" }),
           link: createSectionObject({ key: "link", type: "link" }),
           image: {
             data: {
-              image_url: "./personP1.png",
+              image_url: nestedModal.data.image.data.image_url,
             },
           },
           description: createSectionObject({
@@ -89,15 +126,40 @@ const EditSectionModal: React.FC<editMode> = ({
             type: "typography",
           }),
           id: Date.now().toString(),
-          style: { bgColor: `#${color.toHex()}` },
+          style: {
+            bgColor:
+              typeof bgColor === "string" ? bgColor : `#${bgColor.toHex()}`,
+          },
         },
       };
       setAllChildren((prev: any) => [...prev, newChild]);
     }
     nestedForm.resetFields();
-    setState({});
-    toggleNestedModal({ id: -1, modal: false });
+    toggleNestedModal({ id: "-1", modal: false, data: freeNestedModalData });
   };
+
+  useEffect(() => {
+    const { id } = nestedModal;
+
+    if (id !== "-1") {
+      toggleNestedModal({
+        ...nestedModal,
+        data:
+          allChildren.find((child) => child.data.id === id)?.data ||
+          freeNestedModalData,
+      });
+
+      if (id !== "-1" && id !== "0") {
+        nestedForm.setFieldValue("title", nestedModal.data.title.data.value);
+        nestedForm.setFieldValue(
+          "description",
+          nestedModal.data.description.data.value
+        );
+        nestedForm.setFieldValue("bgColor", nestedModal.data.style.bgColor);
+        nestedForm.setFieldValue("link", nestedModal.data.link.data.path);
+      }
+    }
+  }, [nestedModal.id]);
 
   if (edit === null) return <Spin fullscreen />;
   return (
@@ -153,7 +215,7 @@ const EditSectionModal: React.FC<editMode> = ({
                 name={"color"}
                 wrapperCol={{ span: 24 }}
               >
-                <ColorPicker defaultValue={edit?.data?.style.color || "#000"} />
+                <ColorPicker />
               </Form.Item>
             </Col>
           </Row>
@@ -172,18 +234,18 @@ const EditSectionModal: React.FC<editMode> = ({
                         <PreviewItemDetails
                           allItems={allChildren}
                           setAllChildren={setAllChildren}
-                          setState={setState}
-                          state={state}
                           key={itemm.data.id}
                           item={itemm}
+                          setModal={toggleNestedModal}
                         />
                       ))}
                       <Button
                         type="primary"
                         onClick={() => {
                           toggleNestedModal({
-                            id: 0,
+                            id: "0",
                             modal: true,
+                            data: freeNestedModalData,
                           });
                         }}
                       >
@@ -207,25 +269,26 @@ const EditSectionModal: React.FC<editMode> = ({
         </Form>
       </Row>
       <Modal
-        title={nestedModal.id <= 0 ? "افزودن مورد جدید" : "ویرایش سرویس"}
+        title={nestedModal.id === "0" ? "افزودن مورد جدید" : "ویرایش سرویس"}
         open={nestedModal.modal}
-        onCancel={() => toggleNestedModal({ id: -1, modal: false })}
+        onCancel={() => {
+          toggleNestedModal({ ...nestedModal, id: "-1", modal: false });
+        }}
         okButtonProps={{ style: { display: "none" } }}
-        cancelButtonProps={{ style: { display: "none" } }}
+        cancelButtonProps={{ style: { width: "100%" } }}
+        cancelText={"لغو"}
       >
         <Form
           form={nestedForm}
           initialValues={{
-            title: state?.data?.title.data.value,
-            description: state?.data?.description.data.value,
-            image: state?.data?.image.data.image_url,
-            link: state?.data?.link.data.path,
-            color: state?.data?.style.bgColor || "#000",
+            title: nestedModal?.data?.title?.data.value,
+            description: nestedModal?.data?.description?.data.value,
+            link: nestedModal?.data?.link?.data.path,
+            bgColor: nestedModal?.data?.style?.bgColor || "#000",
           }}
           name="serviceEditor"
           onFinish={addNewServices}
           requiredMark
-          autoComplete="off"
           className={styles.editor}
           style={{ width: "100%", paddingTop: 12 }}
         >
@@ -253,12 +316,10 @@ const EditSectionModal: React.FC<editMode> = ({
             <Col span={12}>
               <Form.Item
                 label={"رنگ پس زمینه را انتخاب کنید."}
-                name={"color"}
+                name={"bgColor"}
                 wrapperCol={{ span: 24 }}
               >
                 <ColorPicker
-                  defaultFormat="hex"
-                  format="hex"
                   presets={[
                     {
                       colors: PresetColors.map((p) => p),
@@ -271,19 +332,42 @@ const EditSectionModal: React.FC<editMode> = ({
             </Col>
           </Row>
 
-          {/* //TODO : image library still left  */}
           <Form.Item name={"photo"}>
-            <p>تصویر : </p>
-            <UploadPhoto imageUrlProps={state?.data?.image.data.image_url} />
+            <ImagePopOver
+              content={
+                <ImageLibraryByType
+                  setData={toggleNestedModal}
+                  type="service"
+                />
+              }
+              title="گالری تصاویر"
+              setOpen={setOpenPopover}
+              open={openPopover}
+            >
+              <Row
+                className={styles.showImagePopover}
+                onClick={() => setOpenPopover(true)}
+              >
+                {nestedModal.data.image.data.image_url ? (
+                  <img
+                    width={"100%"}
+                    height={"100%"}
+                    src={nestedModal.data.image.data.image_url}
+                    alt="تصویر سکشن"
+                  />
+                ) : (
+                  <p>انتخاب تصویر</p>
+                )}
+              </Row>
+            </ImagePopOver>
           </Form.Item>
-
           <Button
             htmlType="submit"
             size="middle"
             type="primary"
             style={{ width: "100%" }}
           >
-            {nestedModal.id > 0 ? "اعمال تغییرات" : "افزودن"}
+            {nestedModal.id !== "0" ? "اعمال تغییرات" : "افزودن"}
           </Button>
         </Form>
       </Modal>

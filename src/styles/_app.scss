@@ -27,8 +27,6 @@ button {
 }
 
 //======= slider ========
-.swiper-android .swiper-slide,
-.swiper-ios .swiper-slide,
-.swiper-wrapper {
+.swiper-wrapper.mySliderSwiper {
   justify-content: center;
 }

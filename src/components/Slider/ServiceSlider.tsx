@@ -56,7 +56,7 @@ export default function ServicesSlider({ slides, navigation = true }: props) {
         968: { slidesPerView: 3 },
       }}
       modules={[Pagination, Navigation]}
-      className="mySwiper"
+      className="mySliderSwiper"
       style={{ width: "100%" }}
     >
       {slides.map((item) => (

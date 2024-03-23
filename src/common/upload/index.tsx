@@ -23,13 +23,14 @@ const beforeUpload = (file: FileType) => {
   return isJpgOrPng && isLt2M;
 };
 
-type props = {
+type props = UploadProps & {
   imageUrlProps?: string;
 };
 
-const UploadPhoto: React.FC<props> = ({ imageUrlProps }) => {
+const UploadPhoto: React.FC<props> = ({ imageUrlProps, ...props }) => {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string>(imageUrlProps || "");
+  console.log(imageUrl);
 
   const handleChange: UploadProps["onChange"] = (info) => {
     if (info.file.status === "uploading") {
@@ -39,8 +40,10 @@ const UploadPhoto: React.FC<props> = ({ imageUrlProps }) => {
     if (info.file.status === "done") {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj as FileType, (url) => {
-        setLoading(false);
+        console.log(url);
+
         setImageUrl(url);
+        setLoading(false);
       });
     }
   };
@@ -48,7 +51,6 @@ const UploadPhoto: React.FC<props> = ({ imageUrlProps }) => {
   const uploadButton = (
     <button style={{ border: 0, background: "none" }} type="button">
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
     </button>
   );
 
@@ -61,6 +63,8 @@ const UploadPhoto: React.FC<props> = ({ imageUrlProps }) => {
       action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
       beforeUpload={beforeUpload}
       onChange={handleChange}
+      openFileDialogOnClick={true}
+      {...props}
     >
       {imageUrl ? (
         <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />

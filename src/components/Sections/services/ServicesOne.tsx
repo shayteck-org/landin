@@ -53,6 +53,14 @@ const ServicesOne: React.FC<componentsProps> = ({ components }) => {
     firstData: components,
   });
 
+  const loadSlider = () => (
+    <ServicesSlider navigation={false} slides={state?.content} />
+  );
+
+  useEffect(() => {
+    loadSlider();
+  }, [state?.content]);
+
   if (!state) return <Spin fullscreen />;
   return (
     <section id="services" className={styles.ServicesOne}>
@@ -61,9 +69,7 @@ const ServicesOne: React.FC<componentsProps> = ({ components }) => {
         <p>{state.sectionTitle.data.value}</p>
         <h2>{state.title.data.value}</h2>
       </div>
-      <div className={styles["parent-2"]}>
-        <ServicesSlider navigation={false} slides={state.content} />
-      </div>
+      <div className={styles["parent-2"]}>{loadSlider()}</div>
       <Editor edit={state} setEdit={setState} setMode={setMode} mode={mode} />
     </section>
   );
