@@ -47,17 +47,14 @@ export default function ServicesSlider({ slides, navigation = true }: props) {
     <Swiper
       slidesPerView={1}
       spaceBetween={30}
-      navigation={navigation}
-      pagination={{
-        clickable: true,
-      }}
+      pagination={{}}
       breakpoints={{
-        680: { slidesPerView: 2 },
-        968: { slidesPerView: 3 },
+        680: { slidesPerView: slides.length >= 2 ? 2 : slides.length },
+        968: { slidesPerView: slides.length >= 3 ? 3 : slides.length },
       }}
       modules={[Pagination, Navigation]}
       className="mySliderSwiper"
-      style={{ width: "100%" }}
+      // style={{ width: "100%" }}
     >
       {slides.map((item) => (
         <SwiperSlide

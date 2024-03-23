@@ -186,6 +186,35 @@ export const responseV1 = [
             },
           },
         },
+        {
+          data: {
+            id: "4040000",
+            title: {
+              data: {
+                value: "محتوا نویسی چیس",
+              },
+            },
+            description: {
+              data: {
+                value:
+                  "ت و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد",
+              },
+            },
+            image: {
+              data: {
+                image_url: "/sectionP1.png",
+              },
+            },
+            link: {
+              data: {
+                path: "/another-4",
+              },
+            },
+            style: {
+              bgColor: "#78a",
+            },
+          },
+        },
       ],
     },
   },
