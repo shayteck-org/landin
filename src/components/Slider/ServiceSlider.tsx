@@ -2,13 +2,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "@/components/Sections/services/services.module.scss";
 import { Navigation, Pagination } from "swiper/modules";
-import tailRight from "@/icons/tail-right.svg";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Typography from "../Typography";
 import Image from "../Image/Image";
 import { Col, Row } from "antd";
+import TailRight from "@/icons/TailRight";
 
 const { Link, Text, Title } = Typography;
 
@@ -74,7 +74,7 @@ export default function ServicesSlider({ slides, navigation = true }: props) {
 
           <Row style={{ marginTop: "auto", alignItems: "center" }} gutter={8}>
             <Col style={{ display: "flex", alignItems: "center" }}>
-              <img src={tailRight} alt="arrowKey" />
+              <TailRight />
             </Col>
             <Col>
               <a href={item.data.link.data.path} className={styles.cardLink}>

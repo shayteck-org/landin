@@ -38,15 +38,17 @@
 }
 
 .ResumeOne {
-  padding-block: 120px !important;
-  box-shadow: 0 0 0 100vmax #f4f7fa;
-  background: #f4f7fa;
+  padding-top: 80px !important;
+  padding-bottom: 0 !important;
+  box-shadow: 0 0 0 100vmax #fdfdff;
+  background: #fdfdff;
   clip-path: inset(0 -100vmax);
   gap: 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
+  margin-bottom: 0 !important;
 
   .parent-1 {
     max-width: 50%;
@@ -63,5 +65,11 @@
       line-height: 52px;
       margin-bottom: 36px;
     }
+  }
+
+  .checkMore {
+    z-index: 98;
+    margin-inline: auto !important;
+    transform: translateY(-200px);
   }
 }

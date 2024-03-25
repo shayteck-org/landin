@@ -5,6 +5,7 @@ import Typography from "@/components/Typography";
 import WhyUsSlider from "@/components/Slider/WhyUsSlider";
 import { Col, Row } from "antd";
 import ResumeSlider from "@/components/Slider/ResumeSlider";
+import TailRight from "@/icons/TailRight";
 
 const { Link, Text, Title } = Typography;
 
@@ -58,12 +59,20 @@ const ResumeOne: React.FC<componentsProps> = ({ components }) => {
       <div className={styles["parent-2"]}>
         <ResumeSlider slides={content} navigation={true} />
       </div>
-      <Row style={{ marginTop: "auto", alignItems: "center" }} gutter={8}>
+      <Row
+        className={styles.checkMore}
+        style={{ marginTop: "auto", alignItems: "center" }}
+        gutter={8}
+      >
         <Col style={{ display: "flex", alignItems: "center" }}>
-          <img src={tailRight} alt="arrowKey" />
+          <TailRight stroke="#1677ff" />
         </Col>
         <Col>
-          <a href={link.data.path} className={styles.cardLink}>
+          <a
+            style={{ position: "relative" }}
+            href={link.data.path}
+            className={styles.cardLink}
+          >
             نمونه کار های بیشتر
           </a>
         </Col>
