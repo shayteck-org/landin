@@ -63,6 +63,20 @@
     }
   }
 
+  @media (width < 768px) {
+    .parent-1 {
+      max-width: 85%;
+
+      h2 {
+        font-size: 20px;
+        line-height: 150%;
+      }
+      p {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
   &::before {
     content: "";
     display: block;

@@ -21,13 +21,13 @@ const SectionExtractor = ({ info }: props) => {
       return <HeaderOne components={info.data} />;
     case "20001":
       return <ServicesOne components={info.data} />;
-    case "30001":
+    case "300201":
       return <RatingSectionOne components={info.data} />;
-    case "40001":
+    case "400021":
       return <AboutUsOne components={info.data} />;
-    case "50001":
+    case "502001":
       return <StaticOneSection components={info.data} />;
-    case "60001":
+    case "600201":
       return <WhyUsOne components={info.data} />;
     case "70001":
       return <ResumeOne components={info.data} />;
