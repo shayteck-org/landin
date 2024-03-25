@@ -1,0 +1,29 @@
+.FooterOne {
+  box-shadow: 0 0 0 100vmax #473bf0;
+  background: #473bf0;
+  clip-path: inset(0 -100vmax);
+  padding: 16px 16px 0 16px;
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  .footerLorem {
+    flex-direction: column;
+  }
+  .copyright {
+    box-shadow: 0 0 0 100vmax #161c2d;
+    background: #161c2d;
+    clip-path: inset(0 -100vmax);
+    padding: 16px;
+    width: 100%;
+    max-width: 1140px;
+    text-align: center;
+  }
+
+  @media (width < 768px) {
+  }
+}

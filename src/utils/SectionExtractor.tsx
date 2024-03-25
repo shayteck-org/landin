@@ -1,4 +1,5 @@
 import AboutUsOne from "@/components/Sections/aboutUs/AboutUs1";
+import FooterOne from "@/components/Sections/footer/footerOne";
 import HeaderOne from "@/components/Sections/headers/HeaderOne";
 import HeroSectionOne from "@/components/Sections/heroSections/HeroSectionOne";
 import RatingSectionOne from "@/components/Sections/ratings/rating1";
@@ -30,6 +31,8 @@ const SectionExtractor = ({ info }: props) => {
       return <WhyUsOne components={info.data} />;
     case "70001":
       return <ResumeOne components={info.data} />;
+    case "99999":
+      return <FooterOne components={info.data} />;
     default:
       return <section>unknown section</section>;
   }
