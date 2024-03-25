@@ -23,9 +23,9 @@ const SectionExtractor = ({ info }: props) => {
       return <ServicesOne components={info.data} />;
     case "30001":
       return <RatingSectionOne components={info.data} />;
-    case "40001":
+    case "405001":
       return <AboutUsOne components={info.data} />;
-    case "50001":
+    case "500601":
       return <StaticOneSection components={info.data} />;
     case "60001":
       return <WhyUsOne components={info.data} />;
