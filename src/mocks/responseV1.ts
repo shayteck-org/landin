@@ -674,10 +674,10 @@ export const responseV1 = [
           value: "کیانمهر رعنایی",
         },
       },
-    },
-    ownerPosition: {
-      data: {
-        value: "CEO/Founder Sodev",
+      ownerPosition: {
+        data: {
+          value: "CEO/Founder Sodev",
+        },
       },
     },
   },
