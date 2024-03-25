@@ -51,8 +51,9 @@ export default function CommentSlider({ slides, navigation = true }: props) {
       pagination={{
         clickable: true,
       }}
+      loop
       modules={[Pagination, Navigation]}
-        className={styles.customSlider}
+      className={styles.customSlider}
     >
       {slides.map((item) => (
         <SwiperSlide key={item.data.id} className={styles.commentCard}>
