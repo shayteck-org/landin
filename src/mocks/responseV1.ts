@@ -495,4 +495,158 @@ export const responseV1 = [
       ],
     },
   },
+  {
+    section: 7,
+    elementId: "70001",
+    data: {
+      sectionTitle: {
+        elementId: "02001",
+        data: {
+          value: `نمونه کار ها`,
+        },
+      },
+      title: {
+        elementId: "01001",
+        data: {
+          value:
+            "مردم ما را انتخاب می کنند زیرا ما بهترین ها را برای همه در نظر میگیریم",
+        },
+      },
+      link: {
+        elementId: "020001",
+        data: {
+          path: "https://google.com",
+          value: "نمونه کار های بیشتر",
+        },
+      },
+      content: [
+        {
+          data: {
+            id: "1635116846444634864",
+            title: {
+              data: {
+                value: "نمونه کار طراحی پفک",
+              },
+            },
+            description: {
+              data: {
+                value: "Graphic Design",
+              },
+            },
+            image: {
+              data: {
+                value: "alt",
+                image_url: "/resume1.png",
+              },
+            },
+          },
+        },
+        {
+          data: {
+            id: "1635116846445312294864",
+            title: {
+              data: {
+                value: "نمونه کار طراحی برند تبلیغاتی",
+              },
+            },
+            description: {
+              data: {
+                value: "Graphic Design",
+              },
+            },
+            image: {
+              data: {
+                value: "alt",
+                image_url: "/resume2.png",
+              },
+            },
+          },
+        },
+        {
+          data: {
+            id: "1632547846112884484694864",
+            title: {
+              data: {
+                value: "توسعه ی وبسایت",
+              },
+            },
+            description: {
+              data: {
+                value: "Web Development",
+              },
+            },
+            image: {
+              data: {
+                value: "alt",
+                image_url: "/resume3.png",
+              },
+            },
+          },
+        },
+        {
+          data: {
+            id: "163254784611458848694864",
+            title: {
+              data: {
+                value: "نوشتن محتوای روزانه",
+              },
+            },
+            description: {
+              data: {
+                value: "Content Writing",
+              },
+            },
+            image: {
+              data: {
+                value: "alt",
+                image_url: "/resume4.png",
+              },
+            },
+          },
+        },
+        {
+          data: {
+            id: "163asfe51168464446304864",
+            title: {
+              data: {
+                value: "نمونه کار طراحی برند تبلیغاتی",
+              },
+            },
+            description: {
+              data: {
+                value: "Graphic Design",
+              },
+            },
+            image: {
+              data: {
+                value: "alt",
+                image_url: "/resume1.png",
+              },
+            },
+          },
+        },
+        {
+          data: {
+            id: "16351asd1684644532948674",
+            title: {
+              data: {
+                value: "نوشتن محتوای روزنامه",
+              },
+            },
+            description: {
+              data: {
+                value: "Content Writing",
+              },
+            },
+            image: {
+              data: {
+                value: "alt",
+                image_url: "/resume2.png",
+              },
+            },
+          },
+        },
+      ],
+    },
+  },
 ];
