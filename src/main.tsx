@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
@@ -12,14 +12,15 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <SharedContextProvider>
         <Routes>
           {routes.map((route) => (
-            <Route
-              path={route.path}
-              Component={route.Component}
-              key={route.path}
-            />
+            <Fragment key={route.title}>
+              <Route
+                path={route.path}
+                Component={route.Component}
+                key={route.path}
+              />
+            </Fragment>
           ))}
         </Routes>
-        <App />
       </SharedContextProvider>
     </HashRouter>
   </React.StrictMode>
