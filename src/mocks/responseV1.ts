@@ -1,5 +1,3 @@
-import { onClickModel } from "@/types/model";
-
 export const responseV1 = [
   {
     section: 0,
@@ -7,29 +5,27 @@ export const responseV1 = [
     data: {
       links: [
         {
-          home: {
-            data: {
-              value: "خانه",
-              path: "#",
-            },
+          data: {
+            id: "110",
+            value: "خانه",
           },
-          services: {
-            data: {
-              value: "سرویس ها",
-              path: "#services",
-            },
+        },
+        {
+          data: {
+            id: "120",
+            value: "سرویس ها",
           },
-          resume: {
-            data: {
-              value: "نمونه کار ها",
-              path: "#resume",
-            },
+        },
+        {
+          data: {
+            id: "130",
+            value: "نمونه کار ها",
           },
-          contact: {
-            data: {
-              value: "ارتباط با ما",
-              path: "#contact",
-            },
+        },
+        {
+          data: {
+            id: "140",
+            value: "ارتباط با ما",
           },
         },
       ],
@@ -40,7 +36,7 @@ export const responseV1 = [
           style: {
             bgColor: "#473BF0",
           },
-          onClick: onClickModel.openDialog1,
+          onClick: 1,
         },
       },
     },
@@ -69,7 +65,7 @@ export const responseV1 = [
           style: {
             bgColor: "#473BF0",
           },
-          onClick: onClickModel.openDialog2,
+          onClick: 2,
         },
       },
       image: {

@@ -51,5 +51,4 @@ export type editMode = {
   mode?: Mode;
   setMode: Dispatch<SetStateAction<Mode>>;
   defaultValues?: any;
-  // defaultValues?: SharedAttributes["data"];
 };

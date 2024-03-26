@@ -2,6 +2,7 @@ import Button from "@/components/Button/Button";
 import Typography from "@/components/Typography";
 import { SharedSection, onClickModel } from "@/types/model";
 import styles from "@/components/Sections/headers/header.module.scss";
+import useSectionEdit from "@/hooks/useSectionEdit";
 
 const { Link, Text, Title } = Typography;
 
@@ -9,29 +10,27 @@ interface HeaderProps extends SharedSection {
   components: {
     links: [
       {
-        home: {
-          data: {
-            value: string;
-            path: string;
-          };
+        data: {
+          id: string;
+          value: string;
         };
-        services: {
-          data: {
-            value: string;
-            path: string;
-          };
+      },
+      {
+        data: {
+          id: string;
+          value: string;
         };
-        resume: {
-          data: {
-            value: string;
-            path: string;
-          };
+      },
+      {
+        data: {
+          id: string;
+          value: string;
         };
-        contact: {
-          data: {
-            value: string;
-            path: string;
-          };
+      },
+      {
+        data: {
+          value: string;
+          id: string;
         };
       }
     ];
@@ -49,27 +48,33 @@ interface HeaderProps extends SharedSection {
 }
 
 const HeaderOne: React.FC<HeaderProps> = ({ components }) => {
-  const { button, links } = components;
+  const { EditSign, Editor, mode, setMode, state, setState } = useSectionEdit({
+    firstData: components,
+    type: "header",
+  });
+  const { button, links } = state;
 
   return (
     <header className={styles.HeaderOne}>
+      <EditSign setMode={setMode} />
       <ul>
         <li>
-          <Link data={links[0].home.data} />
+          <Link data={{ path: "#", value: links[0].data.value }} />
         </li>
         <li>
-          <Link data={links[0].services.data} />
+          <Link data={{ path: "#services", value: links[1].data.value }} />
         </li>
         <li>
-          <Link data={links[0].resume.data} />
+          <Link data={{ path: "#resume", value: links[2].data.value }} />
         </li>
         <li>
-          <Link data={links[0].contact.data} />
+          <Link data={{ path: "#contact", value: links[3].data.value }} />
         </li>
       </ul>
       <Button data={button.data} onClickAction={button.data.onClick}>
         {button.data.value}
       </Button>
+      <Editor />
     </header>
   );
 };

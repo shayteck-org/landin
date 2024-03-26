@@ -1,20 +1,26 @@
-import { Mode, SharedAttributes, editMode } from "@/types/model";
+import { Mode } from "@/types/model";
+import EditModalDispatcher from "@/utils/modals/EditModalDispatcher";
 import EditSign from "@/utils/modals/EditSign";
 import EditSectionModal from "@/utils/modals/editSectionModal";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type editHooks = {
   firstData: any;
+  type:
+    | "about"
+    | "services"
+    | "why"
+    | "footer"
+    | "header"
+    | "statistics"
+    | "heroSection"
+    | "rating"
+    | "resume";
 };
 
-const useSectionEdit = ({ firstData }: editHooks) => {
+const useSectionEdit = ({ firstData, type }: editHooks) => {
   const [mode, setMode] = useState<Mode>("stable");
-  const [state, setState] = useState<any>(null);
-
-  useEffect(() => {
-    setState(firstData);
-    console.log(state);
-  }, []);
+  const [state, setState] = useState<any>(firstData);
 
   useEffect(() => {
     async function compair() {
@@ -30,7 +36,15 @@ const useSectionEdit = ({ firstData }: editHooks) => {
 
   return {
     EditSign,
-    Editor: EditSectionModal,
+    Editor: () => (
+      <EditModalDispatcher
+        type={type}
+        mode={mode}
+        setMode={setMode}
+        state={state}
+        setState={setState}
+      />
+    ),
     mode,
     setMode,
     setState,

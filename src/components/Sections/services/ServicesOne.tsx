@@ -49,8 +49,9 @@ interface componentsProps extends SharedSection {
 }
 
 const ServicesOne: React.FC<componentsProps> = ({ components }) => {
-  const { EditSign, Editor, mode, setMode, state, setState } = useSectionEdit({
+  const { EditSign, Editor, setMode, state } = useSectionEdit({
     firstData: components,
+    type: "services",
   });
 
   const loadSlider = () => (
@@ -70,7 +71,7 @@ const ServicesOne: React.FC<componentsProps> = ({ components }) => {
         <h2>{state.title.data.value}</h2>
       </div>
       <div className={styles["parent-2"]}>{loadSlider()}</div>
-      <Editor edit={state} setEdit={setState} setMode={setMode} mode={mode} />
+      <Editor />
     </section>
   );
 };

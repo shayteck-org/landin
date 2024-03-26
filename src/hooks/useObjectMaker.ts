@@ -7,7 +7,7 @@ const objectMaker = (
   key: string,
   type: ObjectProps["type"],
   form: any
-): object => {
+): { data: { value: string } } => {
   let data: any = {};
 
   switch (type) {
