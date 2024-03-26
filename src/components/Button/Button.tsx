@@ -1,38 +1,24 @@
 import { onClickModel } from "@/types/model";
 import { ButtonModel } from "./model";
+import Hi from "@/common/modalApplications/components/ContactUsModal";
+import ModalDispatcher from "@/common/modalApplications/ModalDispatcher";
+import { useState } from "react";
+import ContactUsModal from "@/common/modalApplications/components/ContactUsModal";
 
 const Button: React.FC<
   ButtonModel & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ data, elementId, onClickAction, ...rest }) => {
   const { onCopy, ...buttonProps } = rest;
-
-  function onClickActionFinder(onClickAction: onClickModel): void {
-    switch (onClickAction) {
-      case onClickModel.openDialog1: {
-        return alert(onClickModel.openDialog1);
-      }
-      case onClickModel.openDialog2: {
-        return alert(onClickModel.openDialog2);
-      }
-      case onClickModel.openDialog3: {
-        return alert(onClickModel.openDialog3);
-      }
-      case onClickModel.openDialog4: {
-        return alert(onClickModel.openDialog4);
-      }
-      default: {
-        return alert("not set");
-      }
-    }
-  }
+  const [modal, toggle] = useState(false);
 
   return (
     <button
       type="button"
       style={{ backgroundColor: data.style?.bgColor || "#473BF0" }}
-      onClick={() => onClickActionFinder(onClickAction)}
+      onClick={() => toggle(!modal)}
       {...buttonProps}
     >
+      <ModalDispatcher modal={modal} toggle={toggle} type={onClickAction} />
       {data.value}
     </button>
   );
