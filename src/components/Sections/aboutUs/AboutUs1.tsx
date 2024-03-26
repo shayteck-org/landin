@@ -63,7 +63,7 @@ const AboutUsOne: React.FC<componentsProps> = ({ components }) => {
           className={styles.sectionTitle}
         />
       </Row>
-      <Row style={{ width: "50%" }}>
+      <Row className={styles.descriptionBox}>
         <Text textType="span" data={descriptionOne.data} />
       </Row>
       <Row className={styles.imageHolder}>
@@ -71,7 +71,11 @@ const AboutUsOne: React.FC<componentsProps> = ({ components }) => {
         <Image className={styles.imageTwo} data={imageTwo.data} />
         <Image className={styles.imageThree} data={imageThree.data} />
       </Row>
-      <Text className={styles.descriptionTwo} textType="span" data={descriptionTwo.data} />
+      <Text
+        className={styles.descriptionTwo}
+        textType="span"
+        data={descriptionTwo.data}
+      />
     </div>
   );
 };

@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  padding: 16px !important;
 
   .parent-1 {
-    max-width: 50%;
+    // max-width: 50%;
 
     p {
       color: var(--red-title);
@@ -22,14 +23,21 @@
     font-size: 24px;
   }
 
+  .descriptionBox {
+    max-width: 50%;
+  }
+
   .imageHolder {
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: start;
+    gap: 16px;
 
     img {
       object-fit: cover;
+      border-radius: 16px;
+      width: 100%;
     }
 
     .imageOne {
@@ -51,6 +59,43 @@
     max-width: 50%;
     bottom: 80px;
     left: 0;
+  }
+
+  @media (width < 768px) {
+    .parent-1 {
+      span {
+        font-size: 18px;
+      }
+
+      p {
+        text-align: center;
+        margin-inline: auto;
+      }
+    }
+
+    .descriptionBox {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .imageHolder {
+      flex-direction: column;
+
+      .imageOne,
+      .imageThree,
+      .imageTwo {
+        margin-top: 0;
+      }
+    }
+
+    .descriptionTwo {
+      position: absolute;
+      bottom: 14px;
+      display: block;
+      font-size: 14px;
+      padding-inline: 10px;
+      opacity: 0.75;
+    }
   }
 
   &::before {
