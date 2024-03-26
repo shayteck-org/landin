@@ -30,8 +30,8 @@ const StaticOneSection: React.FC<componentsProps> = ({ components }) => {
 
   return (
     <div className={styles.statisOne} id="#score" style={{ marginBottom: 80 }}>
-      <Row className={styles["parent-1"]} gutter={[60, 66]}>
-        <Col span={8}>
+      <Row className={styles["parent-1"]}>
+        <Col>
           <Text
             textType="paragraph"
             data={{ value: `${aveScore.data.value}/5.0` }}
@@ -41,14 +41,14 @@ const StaticOneSection: React.FC<componentsProps> = ({ components }) => {
             data={{ value: "میانگین امتیاز مشتریان عزیز به محصولات ما" }}
           />
         </Col>
-        <Col span={8}>
+        <Col>
           <Text textType="paragraph" data={satisfing.data} />
           <Text
             textType="span"
             data={{ value: "رضایت مشتریان عزیز ما نسبت به خدمات سودِو" }}
           />
         </Col>
-        <Col span={8}>
+        <Col>
           <Text textType="paragraph" data={customerAmout.data} />
           <Text
             textType="span"

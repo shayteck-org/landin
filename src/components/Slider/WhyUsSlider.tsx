@@ -44,17 +44,18 @@ export default function WhyUsSlider({ slides, navigation = true }: props) {
   return (
     <>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={1}
         grid={{
-          rows: 1,
+          rows: 4,
           fill: "row",
         }}
         spaceBetween={80}
         breakpoints={{
-          768: {
+          900: {
             grid: {
               rows: 2,
             },
+            slidesPerView: 2,
           },
         }}
         navigation={navigation}
@@ -64,10 +65,10 @@ export default function WhyUsSlider({ slides, navigation = true }: props) {
         {slides.map((slide) => (
           <SwiperSlide key={slide.data.id}>
             <Row className={styles.itemContainer}>
-              <Col span={4}>
+              <Col xs={3} md={4}>
                 <Image data={slide.data.image.data} />
               </Col>
-              <Col span={20}>
+              <Col xs={21} md={20}>
                 <Text data={slide.data.title.data} textType="paragraph" />
                 <Text data={slide.data.description.data} textType="span" />
               </Col>

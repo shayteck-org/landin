@@ -4,11 +4,14 @@
   margin-top: 40px;
 
   .parent-1 {
+    gap: 24px;
+
     & > div {
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 12px;
+      flex: 1;
 
       p {
         font-family: Gilroy;
@@ -24,5 +27,9 @@
         text-align: center;
       }
     }
+  }
+
+  @media (width < 824px) {
+    display: none;
   }
 }

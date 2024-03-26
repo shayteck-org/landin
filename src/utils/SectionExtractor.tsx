@@ -15,23 +15,23 @@ const THEME_VAR = { LIGHT: "light", DARK: "dark" };
 
 const SectionExtractor = ({ info }: props) => {
   switch (info.elementId) {
-    case "102001":
+    case "10001":
       return <HeroSectionOne components={info.data} />;
-    case "002000":
+    case "00000":
       return <HeaderOne components={info.data} />;
-    case "202001":
+    case "20001":
       return <ServicesOne components={info.data} />;
-    case "302001":
+    case "30001":
       return <RatingSectionOne components={info.data} />;
     case "40001":
       return <AboutUsOne components={info.data} />;
-    case "500601":
+    case "50001":
       return <StaticOneSection components={info.data} />;
-    case "600201":
+    case "60001":
       return <WhyUsOne components={info.data} />;
-    case "700201":
+    case "70001":
       return <ResumeOne components={info.data} />;
-    case "999299":
+    case "99999":
       return <FooterOne components={info.data} />;
     default:
       return <section>unknown section</section>;
