@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { message, Upload } from "antd";
 import type { GetProp, UploadProps } from "antd";
@@ -16,23 +16,26 @@ const beforeUpload = (file: FileType) => {
   if (!isJpgOrPng) {
     message.error("You can only upload JPG/PNG file!");
   }
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error("Image must smaller than 2MB!");
+  const isLt5M = file.size / 1024 / 1024 < 5;
+  if (!isLt5M) {
+    message.error("Image must smaller than 5MB!");
   }
-  return isJpgOrPng && isLt2M;
+  return isLt5M && isJpgOrPng;
 };
 
-type props = UploadProps & {
+type Props = UploadProps & {
   imageUrlProps?: string;
+  setImageUrl: Dispatch<SetStateAction<string | undefined>>;
 };
 
-const UploadPhoto: React.FC<props> = ({ imageUrlProps, ...props }) => {
+const UploadPhoto: React.FC<Props> = ({
+  imageUrlProps,
+  setImageUrl,
+  ...props
+}) => {
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState<string>(imageUrlProps || "");
-  console.log(imageUrl);
 
-  const handleChange: UploadProps["onChange"] = (info) => {
+  const handleChange: Props["onChange"] = (info) => {
     if (info.file.status === "uploading") {
       setLoading(true);
       return;
@@ -56,18 +59,24 @@ const UploadPhoto: React.FC<props> = ({ imageUrlProps, ...props }) => {
 
   return (
     <Upload
+      customRequest={(info) => {
+        getBase64(info.file as FileType, (url) => {
+          setImageUrl(url);
+        });
+      }}
       name="avatar"
       listType="picture-card"
       className="avatar-uploader"
-      showUploadList={false}
-      action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
       beforeUpload={beforeUpload}
       onChange={handleChange}
-      openFileDialogOnClick={true}
       {...props}
     >
-      {imageUrl ? (
-        <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
+      {imageUrlProps ? (
+        <img
+          src={imageUrlProps}
+          alt="avatar"
+          style={{ width: "95%", aspectRatio: 1, borderRadius: 6 }}
+        />
       ) : (
         uploadButton
       )}

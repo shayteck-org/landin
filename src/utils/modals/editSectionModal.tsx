@@ -200,30 +200,10 @@ const EditSectionModal: React.FC<editMode> = ({
             <Input placeholder="مقدار جدید را وارد کنید" />
           </Form.Item>
 
-          <Form.Item
-            label={"توضیحات"}
-            name={"description"}
-            wrapperCol={{ span: 24 }}
-          >
-            <Input placeholder="مقدار جدید را وارد کنید" />
-          </Form.Item>
-
-          <Row gutter={[16, 16]}>
-            <Col span={12}>
-              <Form.Item
-                label={"رنگ متن را انتخاب کنید."}
-                name={"color"}
-                wrapperCol={{ span: 24 }}
-              >
-                <ColorPicker />
-              </Form.Item>
-            </Col>
-          </Row>
           <Form.Item>
             <Collapse
               defaultActiveKey={["1"]}
               expandIconPosition="end"
-              onChange={(e) => console.log(e)}
               items={[
                 {
                   key: "1",

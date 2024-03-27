@@ -43,10 +43,7 @@ const EditSectionModal: React.FC<editMode> = ({
     id: "-1",
   });
 
-  console.log(edit);
-
   const [allChildren, setAllChildren] = useState<any[]>(edit?.links || []);
-  const [openPopover, setOpenPopover] = useState<boolean>(false);
   const [form] = useForm();
   const [nestedForm] = useForm();
 
@@ -176,7 +173,11 @@ const EditSectionModal: React.FC<editMode> = ({
             />
           </Form.Item>
 
-          <Form.Item name={"onClickAction"}>
+          <Form.Item
+            tooltip={"پس از کلیک شدن روی دکمه چه صفحه ای نشان داده شود"}
+            label={"اکشن مربوط به دکمه"}
+            name={"onClickAction"}
+          >
             <Select
               options={[
                 {
@@ -203,7 +204,6 @@ const EditSectionModal: React.FC<editMode> = ({
             <Collapse
               defaultActiveKey={["1"]}
               expandIconPosition="end"
-              onChange={(e) => console.log(e)}
               items={[
                 {
                   key: "1",

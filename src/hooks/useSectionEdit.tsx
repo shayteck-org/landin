@@ -20,7 +20,7 @@ type editHooks = {
 
 const useSectionEdit = ({ firstData, type }: editHooks) => {
   const [mode, setMode] = useState<Mode>("stable");
-  const [state, setState] = useState<any>(firstData);
+  const [state, setState] = useState<typeof firstData>(firstData);
 
   useEffect(() => {
     async function compair() {
