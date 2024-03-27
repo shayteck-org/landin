@@ -3,6 +3,7 @@ import styles from "./aboutUs.module.scss";
 import React from "react";
 import { Row } from "antd";
 import Image from "@/components/Image/Image";
+import useSectionEdit from "@/hooks/useSectionEdit";
 
 const { Link, Text, Title } = Typography;
 
@@ -45,6 +46,10 @@ type componentsProps = {
 };
 
 const AboutUsOne: React.FC<componentsProps> = ({ components }) => {
+  const { EditSign, Editor, setMode, state } = useSectionEdit({
+    firstData: components as componentsProps["components"],
+    type: "about",
+  });
   const {
     sectionTitle,
     descriptionOne,
@@ -52,10 +57,11 @@ const AboutUsOne: React.FC<componentsProps> = ({ components }) => {
     imageOne,
     imageThree,
     imageTwo,
-  } = components;
+  } = state;
 
   return (
     <div className={styles.aboutOne} id="#about" style={{ marginBottom: 80 }}>
+      <EditSign setMode={setMode} />
       <Row className={styles["parent-1"]}>
         <Text
           textType="paragraph"
@@ -76,6 +82,7 @@ const AboutUsOne: React.FC<componentsProps> = ({ components }) => {
         textType="span"
         data={descriptionTwo.data}
       />
+      <Editor />
     </div>
   );
 };

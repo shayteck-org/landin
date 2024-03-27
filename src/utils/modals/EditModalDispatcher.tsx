@@ -4,6 +4,7 @@ import EditHeaderModal from "./editHeaderModal";
 import { Dispatch, SetStateAction } from "react";
 import EditHeroSectionModal from "./editHeroModal";
 import EditRatingModal from "./editRatingSection";
+import EditAboutModal from "./editAboutModal";
 
 type Props = {
   type:
@@ -29,11 +30,16 @@ const EditModalDispatcher = ({
   setState,
   state,
 }: Props): JSX.Element => {
-  console.log(type, state);
-
   switch (type) {
     case "about":
-      return <p>about</p>;
+      return (
+        <EditAboutModal
+          mode={mode}
+          setMode={setMode}
+          edit={state}
+          setEdit={setState}
+        />
+      );
     case "services":
       return (
         <EditSectionModal
