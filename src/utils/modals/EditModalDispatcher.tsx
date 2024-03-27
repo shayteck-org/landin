@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction } from "react";
 import EditHeroSectionModal from "./editHeroModal";
 import EditRatingModal from "./editRatingSection";
 import EditAboutModal from "./editAboutModal";
+import EditStaticsticsModal from "./editStatisticsModal";
 
 type Props = {
   type:
@@ -63,7 +64,14 @@ const EditModalDispatcher = ({
         />
       );
     case "statistics":
-      return <p>statistics</p>;
+      return (
+        <EditStaticsticsModal
+          mode={mode}
+          setMode={setMode}
+          edit={state}
+          setEdit={setState}
+        />
+      );
     case "heroSection":
       return (
         <EditHeroSectionModal

@@ -2,6 +2,7 @@ import Typography from "@/components/Typography";
 import styles from "./statis.module.scss";
 import React from "react";
 import { Col, Row } from "antd";
+import useSectionEdit from "@/hooks/useSectionEdit";
 
 const { Link, Text, Title } = Typography;
 
@@ -26,10 +27,19 @@ type componentsProps = {
 };
 
 const StaticOneSection: React.FC<componentsProps> = ({ components }) => {
-  const { aveScore, customerAmout, satisfing } = components;
+  const { EditSign, Editor, setMode, state } = useSectionEdit({
+    firstData: components as componentsProps["components"],
+    type: "statistics",
+  });
+  const { aveScore, customerAmout, satisfing } = state;
 
   return (
-    <div className={styles.statisOne} id="#score" style={{ marginBottom: 80 }}>
+    <div
+      className={styles.statisOne}
+      id="#score"
+      style={{ position: "relative", marginBottom: 80 }}
+    >
+      <EditSign setMode={setMode} />
       <Row className={styles["parent-1"]}>
         <Col>
           <Text
@@ -56,6 +66,7 @@ const StaticOneSection: React.FC<componentsProps> = ({ components }) => {
           />
         </Col>
       </Row>
+      <Editor />
     </div>
   );
 };
