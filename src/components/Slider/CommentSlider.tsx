@@ -65,7 +65,7 @@ export default function CommentSlider({ slides, navigation = true }: props) {
               className={styles["ant-rate"]}
               disabled
               allowHalf
-              defaultValue={item.data.rate.data.star_count}
+              value={item.data.rate.data.star_count}
             />
             <Text
               className={styles.commentText}

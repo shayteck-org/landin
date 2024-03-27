@@ -1,4 +1,5 @@
 import CommentSlider from "@/components/Slider/CommentSlider";
+import useSectionEdit from "@/hooks/useSectionEdit";
 import React from "react";
 
 type componentsProps = {
@@ -33,11 +34,23 @@ type componentsProps = {
 };
 
 const RatingSectionOne: React.FC<componentsProps> = ({ components }) => {
-  const { content } = components;
+  const { EditSign, Editor, mode, setMode, state, setState } = useSectionEdit({
+    firstData: components,
+    type: "rating",
+  });
+  const { content } = state;
 
   return (
-    <div style={{ borderBottom: "2px solid #E7E9ED", marginBottom: 80 }}>
+    <div
+      style={{
+        position: "relative",
+        borderBottom: "2px solid #E7E9ED",
+        marginBottom: 80,
+      }}
+    >
+      <EditSign setMode={setMode} />
       <CommentSlider navigation={false} slides={content} />
+      <Editor />
     </div>
   );
 };

@@ -25,7 +25,7 @@ const beforeUpload = (file: FileType) => {
 
 type Props = UploadProps & {
   imageUrlProps?: string;
-  setImageUrl: Dispatch<SetStateAction<string | undefined>>;
+  setImageUrl: Dispatch<SetStateAction<string>>;
 };
 
 const UploadPhoto: React.FC<Props> = ({

@@ -10,11 +10,14 @@
 
     .commentImage {
       * {
+        border-radius: 80%;
         width: 164px;
+        height: 164px;
       }
     }
 
     .commentSection {
+      width: 100%;
       padding: 16px;
       display: flex;
       flex-direction: column;
@@ -50,6 +53,7 @@
         * {
           margin-inline: auto;
           width: 86px;
+          height: 86px;
         }
       }
 

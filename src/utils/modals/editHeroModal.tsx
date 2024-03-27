@@ -30,7 +30,7 @@ const EditHeroSectionModal: React.FC<editMode> = ({
   mode,
 }) => {
   const [modal, toggle] = useState<boolean>(false);
-  const [imageUrl, setImageUrl] = useState<string>();
+  const [imageUrl, setImageUrl] = useState<string>("");
   const [form] = useForm();
   const [nestedForm] = useForm();
 
@@ -204,7 +204,7 @@ const EditHeroSectionModal: React.FC<editMode> = ({
             name={"image"}
           >
             <UploadPhoto
-              setImageUrl={setImageUrl || ""}
+              setImageUrl={setImageUrl}
               imageUrlProps={imageUrl}
               showUploadList={false}
               maxCount={1}
