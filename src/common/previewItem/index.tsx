@@ -1,4 +1,4 @@
-import { Col, Row, Spin } from "antd";
+import { Col, Row, Spin, message } from "antd";
 import React, { Dispatch, SetStateAction } from "react";
 import styles from "./style.module.scss";
 type Props = {
@@ -25,6 +25,8 @@ const PreviewItemDetails: React.FC<Props> = ({
   };
 
   const deleteButton = (item: { data: { id: string } }) => {
+    if (allItems.length <= 3)
+      return message.error("حداقل مقدار برای آیتم ها 3 تا میباشد.");
     setAllChildren(allItems.filter((s) => s.data.id !== item.data.id));
   };
 
