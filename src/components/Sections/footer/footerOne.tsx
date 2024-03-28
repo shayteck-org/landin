@@ -8,6 +8,7 @@ import TwitterIcon from "@/icons/Twitter";
 import FaceBookLogo from "@/icons/Facebook";
 import InstagramLogo from "@/icons/Instagram";
 import LikedinLogo from "@/icons/Linkedin";
+import useSectionEdit from "@/hooks/useSectionEdit";
 
 const { Link, Text, Title } = Typography;
 
@@ -42,10 +43,16 @@ interface FooterProps extends SharedSection {
 }
 
 const FooterOne: React.FC<FooterProps> = ({ components }) => {
-  const { from, image, owner, sogen, ownerPosition } = components;
+  const { EditSign, Editor, setMode, state } = useSectionEdit({
+    firstData: components as FooterProps["components"],
+    type: "footer",
+  });
+  const { from, image, owner, sogen, ownerPosition } = state;
 
   return (
-    <footer className={styles.FooterOne}>
+    <footer style={{ position: "relative" }} className={styles.FooterOne}>
+      <EditSign setMode={setMode} />
+
       <Row className={styles.footerLorem}>
         <Text className={styles.from} textType="span" data={from.data} />
         <Text className={styles.sogen} textType="paragraph" data={sogen.data} />
@@ -91,6 +98,8 @@ const FooterOne: React.FC<FooterProps> = ({ components }) => {
           </ul>
         </Col>
       </Row>
+
+      <Editor />
     </footer>
   );
 };

@@ -8,6 +8,7 @@ import EditAboutModal from "./editAboutModal";
 import EditStaticsticsModal from "./editStatisticsModal";
 import EditWhyUsModal from "./editWhyUsModal";
 import EditResumeModal from "./editResumeModal";
+import EditFooterModal from "./editFooterModal";
 
 type Props = {
   type:
@@ -62,7 +63,14 @@ const EditModalDispatcher = ({
         />
       );
     case "footer":
-      return <p>footer</p>;
+      return (
+        <EditFooterModal
+          mode={mode}
+          setMode={setMode}
+          edit={state}
+          setEdit={setState}
+        />
+      );
     case "header":
       return (
         <EditHeaderModal
