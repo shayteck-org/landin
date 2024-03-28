@@ -49,12 +49,13 @@ export default function WhyUsSlider({ slides, navigation = true }: props) {
           rows: 4,
           fill: "row",
         }}
-        spaceBetween={80}
+        spaceBetween={40}
         breakpoints={{
           900: {
             grid: {
               rows: 2,
             },
+            spaceBetween: 80,
             slidesPerView: 2,
           },
         }}
@@ -65,10 +66,10 @@ export default function WhyUsSlider({ slides, navigation = true }: props) {
         {slides.map((slide) => (
           <SwiperSlide key={slide.data.id}>
             <Row className={styles.itemContainer}>
-              <Col xs={3} md={4}>
+              <Col xs={4}>
                 <Image data={slide.data.image.data} />
               </Col>
-              <Col xs={21} md={20}>
+              <Col xs={20}>
                 <Text data={slide.data.title.data} textType="paragraph" />
                 <Text data={slide.data.description.data} textType="span" />
               </Col>

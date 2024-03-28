@@ -75,6 +75,12 @@
         margin-bottom: 12px;
       }
     }
+
+    .parent-2 {
+      .card {
+        max-width: 100%;
+      }
+    }
   }
 
   &::before {
