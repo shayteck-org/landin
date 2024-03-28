@@ -6,6 +6,7 @@ import WhyUsSlider from "@/components/Slider/WhyUsSlider";
 import { Col, Row } from "antd";
 import ResumeSlider from "@/components/Slider/ResumeSlider";
 import TailRight from "@/icons/TailRight";
+import useSectionEdit from "@/hooks/useSectionEdit";
 
 const { Link, Text, Title } = Typography;
 
@@ -48,10 +49,16 @@ interface componentsProps extends SharedSection {
 }
 
 const ResumeOne: React.FC<componentsProps> = ({ components }) => {
-  const { sectionTitle, title, content, link } = components;
+  const { EditSign, Editor, mode, setMode, state, setState } = useSectionEdit({
+    firstData: components,
+    type: "resume",
+  });
+  const { sectionTitle, title, content, link } = state;
 
   return (
     <section id="resume" className={styles.ResumeOne}>
+      <EditSign setMode={setMode} />
+
       <div className={styles["parent-1"]}>
         <Text textType="paragraph" data={sectionTitle.data} />
         <Title elementId={title.elementId} data={title.data} level={2} />
@@ -77,6 +84,8 @@ const ResumeOne: React.FC<componentsProps> = ({ components }) => {
           </a>
         </Col>
       </Row>
+
+      <Editor />
     </section>
   );
 };

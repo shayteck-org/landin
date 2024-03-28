@@ -7,6 +7,7 @@ import EditRatingModal from "./editRatingSection";
 import EditAboutModal from "./editAboutModal";
 import EditStaticsticsModal from "./editStatisticsModal";
 import EditWhyUsModal from "./editWhyUsModal";
+import EditResumeModal from "./editResumeModal";
 
 type Props = {
   type:
@@ -99,7 +100,14 @@ const EditModalDispatcher = ({
         />
       );
     case "resume":
-      return <p>resume</p>;
+      return (
+        <EditResumeModal
+          mode={mode}
+          setMode={setMode}
+          edit={state}
+          setEdit={setState}
+        />
+      );
     default:
       return <p>undefined</p>;
   }
