@@ -6,6 +6,7 @@ import EditHeroSectionModal from "./editHeroModal";
 import EditRatingModal from "./editRatingSection";
 import EditAboutModal from "./editAboutModal";
 import EditStaticsticsModal from "./editStatisticsModal";
+import EditWhyUsModal from "./editWhyUsModal";
 
 type Props = {
   type:
@@ -51,7 +52,14 @@ const EditModalDispatcher = ({
         />
       );
     case "why":
-      return <p>why</p>;
+      return (
+        <EditWhyUsModal
+          mode={mode}
+          setMode={setMode}
+          edit={state}
+          setEdit={setState}
+        />
+      );
     case "footer":
       return <p>footer</p>;
     case "header":

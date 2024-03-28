@@ -3,7 +3,7 @@ import { Dispatch, MouseEvent, SetStateAction } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 export default function ImageLibraryByType(props: {
-  type: "about" | "service";
+  type: "about" | "service" | "why";
   setData: Dispatch<SetStateAction<{ modal: boolean; id: string; data: any }>>;
 }) {
   const { setData, type } = props;
@@ -25,14 +25,29 @@ export default function ImageLibraryByType(props: {
   };
 
   switch (type) {
-    case "about": {
+    case "why": {
       return (
-        <Fragment>
-          <div>☺</div>
-          <div>☺</div>
-          <div>☺</div>
-          <div>☺</div>
-        </Fragment>
+        <Row
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4,1fr)",
+            gap: 8,
+          }}
+        >
+          {Array.from({ length: 4 }).map((image, index: number) => (
+            <img
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={(e) => onClick(e)}
+              width={60}
+              height={60}
+              src={`/svg/why${index + 1}.svg`}
+              alt="images"
+              key={index}
+            />
+          ))}
+        </Row>
       );
     }
     case "service":

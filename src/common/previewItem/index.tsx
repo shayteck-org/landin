@@ -14,6 +14,8 @@ const PreviewItemDetails: React.FC<Props> = ({
   setAllChildren,
   setModal,
 }) => {
+  const doesStyleExist = !!item.data.style;
+
   const editButton = (item: { data: { id: string } }) => {
     setModal({
       id: item.data.id,
@@ -29,18 +31,21 @@ const PreviewItemDetails: React.FC<Props> = ({
   if (!item) return <Spin />;
   return (
     <Row className={styles.itemContainer}>
-      <Col span={5} className={styles.imageHolder}>
+      <Col span={doesStyleExist ? 5 : 7} className={styles.imageHolder}>
         <p>تصویر :</p>
         <img src={item?.data?.image.data.image_url} alt="تصویر مدنظر" />
       </Col>
-      <Col span={8} className={styles.titleHolder}>
+      <Col span={doesStyleExist ? 8 : 11} className={styles.titleHolder}>
         <p>عنوان :</p>
         <p>{item?.data?.title.data.value}</p>
       </Col>
-      <Col span={5} className={styles.bgColor}>
-        <p>رنگ :</p>
-        <span style={{ backgroundColor: item?.data?.style?.bgColor }}></span>
-      </Col>
+      {doesStyleExist && (
+        <Col span={5} className={styles.bgColor}>
+          <p>رنگ :</p>
+          <span style={{ backgroundColor: item?.data?.style?.bgColor }}></span>
+        </Col>
+      )}
+
       <Col span={6} className={styles.editItem}>
         <p style={{ color: "palegreen" }} onClick={() => editButton(item)}>
           ویرایش
