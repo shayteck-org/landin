@@ -8,6 +8,15 @@ const { Link, Text, Title } = Typography;
 
 type componentsProps = {
   components: {
+    firstTitle: {
+      data: { value: string };
+    };
+    secondTitle: {
+      data: { value: string };
+    };
+    thirdTitle: {
+      data: { value: string };
+    };
     aveScore: {
       data: {
         value: string;
@@ -31,7 +40,14 @@ const StaticOneSection: React.FC<componentsProps> = ({ components }) => {
     firstData: components as componentsProps["components"],
     type: "statistics",
   });
-  const { aveScore, customerAmout, satisfing } = state;
+  const {
+    firstTitle,
+    secondTitle,
+    thirdTitle,
+    aveScore,
+    customerAmout,
+    satisfing,
+  } = state;
 
   return (
     <div
@@ -42,28 +58,16 @@ const StaticOneSection: React.FC<componentsProps> = ({ components }) => {
       <EditSign setMode={setMode} />
       <Row className={styles["parent-1"]}>
         <Col>
-          <Text
-            textType="paragraph"
-            data={{ value: `${aveScore.data.value}/5.0` }}
-          />
-          <Text
-            textType="span"
-            data={{ value: "میانگین امتیاز مشتریان عزیز به محصولات ما" }}
-          />
+          <Text textType="paragraph" data={aveScore.data} />
+          <Text textType="span" data={firstTitle.data} />
         </Col>
         <Col>
           <Text textType="paragraph" data={satisfing.data} />
-          <Text
-            textType="span"
-            data={{ value: "رضایت مشتریان عزیز ما نسبت به خدمات سودِو" }}
-          />
+          <Text textType="span" data={secondTitle.data} />
         </Col>
         <Col>
           <Text textType="paragraph" data={customerAmout.data} />
-          <Text
-            textType="span"
-            data={{ value: "مشتریانی که هر ماه از ما خرید میکنند" }}
-          />
+          <Text textType="span" data={thirdTitle.data} />
         </Col>
       </Row>
       <Editor />

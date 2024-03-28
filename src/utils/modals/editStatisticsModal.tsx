@@ -1,6 +1,6 @@
 import { editMode } from "@/types/model";
 import styles from "@/styles/editModal.module.scss";
-import { Button, Form, Input, Modal, Row, Spin } from "antd";
+import { Button, Col, Form, Input, Modal, Row, Spin } from "antd";
 import { useEffect, useState } from "react";
 import { useForm } from "antd/es/form/Form";
 import UploadPhoto from "@/common/upload";
@@ -29,6 +29,18 @@ const EditStaticsticsModal: React.FC<editMode> = ({
       case "submit": {
         setEdit({
           ...edit,
+          firstTitle: editSectionObject({
+            key: "firstTitle",
+            type: "typography",
+          }),
+          secondTitle: editSectionObject({
+            key: "secondTitle",
+            type: "typography",
+          }),
+          thirdTitle: editSectionObject({
+            key: "thirdTitle",
+            type: "typography",
+          }),
           aveScore: editSectionObject({
             key: "aveScore",
             type: "typography",
@@ -62,7 +74,7 @@ const EditStaticsticsModal: React.FC<editMode> = ({
   if (edit === null) return <Spin fullscreen />;
   return (
     <Modal
-      title={"تغییر اطلاعات درباره ما"}
+      title={"تغییر اطلاعات آماری"}
       open={modal}
       onCancel={() => stateHandler("cancel")}
       okButtonProps={{ style: { display: "none" } }}
@@ -72,6 +84,9 @@ const EditStaticsticsModal: React.FC<editMode> = ({
         <Form
           form={form}
           initialValues={{
+            firstTitle: edit?.firstTitle.data?.value,
+            secondTitle: edit?.secondTitle.data?.value,
+            thirdTitle: edit?.thirdTitle.data?.value,
             aveScore: edit?.aveScore.data?.value,
             satisfing: edit?.satisfing.data?.value,
             customerAmout: edit?.customerAmout.data?.value,
@@ -84,29 +99,68 @@ const EditStaticsticsModal: React.FC<editMode> = ({
           className={styles.editor}
           style={{ width: "100%", paddingTop: 12 }}
         >
-          <Form.Item
-            label={"میانگین امتیاز مشتریان"}
-            name={"aveScore"}
-            wrapperCol={{ span: 24 }}
-          >
-            <Input placeholder="مقدار جدید را وارد کنید" />
-          </Form.Item>
+          <Row gutter={[8, 10]}>
+            <Col xs={24} md={12}>
+              <Form.Item
+                label={"تایتل اول"}
+                name={"firstTitle"}
+                wrapperCol={{ span: 24 }}
+              >
+                <Input placeholder="مقدار جدید را وارد کنید" />
+              </Form.Item>
+            </Col>
+            <Col xs={24} md={12}>
+              <Form.Item
+                label={"مقدار تایتل اول"}
+                name={"aveScore"}
+                wrapperCol={{ span: 24 }}
+              >
+                <Input placeholder="مقدار جدید را وارد کنید" />
+              </Form.Item>
+            </Col>
+          </Row>
 
-          <Form.Item
-            label={"رضایت مشتریان"}
-            name={"satisfing"}
-            wrapperCol={{ span: 24 }}
-          >
-            <Input placeholder="مقدار جدید را وارد کنید" />
-          </Form.Item>
+          <Row gutter={[8, 10]}>
+            <Col xs={24} md={12}>
+              <Form.Item
+                label={"تایتل دوم"}
+                name={"secondTitle"}
+                wrapperCol={{ span: 24 }}
+              >
+                <Input placeholder="مقدار جدید را وارد کنید" />
+              </Form.Item>
+            </Col>
+            <Col xs={24} md={12}>
+              <Form.Item
+                label={"مقدار تایتل دوم"}
+                name={"satisfing"}
+                wrapperCol={{ span: 24 }}
+              >
+                <Input placeholder="مقدار جدید را وارد کنید" />
+              </Form.Item>
+            </Col>
+          </Row>
 
-          <Form.Item
-            label={"مشتریان ماهانه"}
-            name={"customerAmout"}
-            wrapperCol={{ span: 24 }}
-          >
-            <Input placeholder="مقدار جدید را وارد کنید" />
-          </Form.Item>
+          <Row gutter={[8, 10]}>
+            <Col xs={24} md={12}>
+              <Form.Item
+                label={"تایتل سوم"}
+                name={"thirdTitle"}
+                wrapperCol={{ span: 24 }}
+              >
+                <Input placeholder="مقدار جدید را وارد کنید" />
+              </Form.Item>
+            </Col>
+            <Col xs={24} md={12}>
+              <Form.Item
+                label={"مقدار تایتل سوم"}
+                name={"customerAmout"}
+                wrapperCol={{ span: 24 }}
+              >
+                <Input placeholder="مقدار جدید را وارد کنید" />
+              </Form.Item>
+            </Col>
+          </Row>
 
           <Button
             htmlType="submit"

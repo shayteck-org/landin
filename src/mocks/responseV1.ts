@@ -321,9 +321,18 @@ export const responseV1 = [
     section: 5,
     elementId: "50001",
     data: {
+      firstTitle: {
+        data: { value: "میانگین امتیاز مشتریان عزیز به محصولات ما" },
+      },
+      secondTitle: {
+        data: { value: "رضایت مشتریان عزیز ما نسبت به خدمات سودِو" },
+      },
+      thirdTitle: {
+        data: { value: "مشتریانی که هر ماه از ما خرید میکنند" },
+      },
       aveScore: {
         data: {
-          value: "4.9",
+          value: "4.9/5.0",
         },
       },
       satisfing: {
