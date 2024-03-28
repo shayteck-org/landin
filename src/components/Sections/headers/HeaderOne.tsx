@@ -56,25 +56,27 @@ const HeaderOne: React.FC<HeaderProps> = ({ components }) => {
 
   return (
     <header className={styles.HeaderOne}>
-      <EditSign setMode={setMode} />
-      <ul>
-        <li>
-          <Link data={{ path: "#", value: links[0].data.value }} />
-        </li>
-        <li>
-          <Link data={{ path: "#services", value: links[1].data.value }} />
-        </li>
-        <li>
-          <Link data={{ path: "#resume", value: links[2].data.value }} />
-        </li>
-        <li>
-          <Link data={{ path: "#contact", value: links[3].data.value }} />
-        </li>
-      </ul>
-      <Button data={button.data} onClickAction={button.data.onClick}>
-        {button.data.value}
-      </Button>
-      <Editor />
+      <nav>
+        <EditSign setMode={setMode} />
+        <ul>
+          <li>
+            <Link data={{ path: "#", value: links[0].data.value }} />
+          </li>
+          <li>
+            <Link data={{ path: "#services", value: links[1].data.value }} />
+          </li>
+          <li>
+            <Link data={{ path: "#resume", value: links[2].data.value }} />
+          </li>
+          <li>
+            <Link data={{ path: "#contact", value: links[3].data.value }} />
+          </li>
+        </ul>
+        <Button data={button.data} onClickAction={button.data.onClick}>
+          {button.data.value}
+        </Button>
+        <Editor />
+      </nav>
     </header>
   );
 };

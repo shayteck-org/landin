@@ -10,7 +10,7 @@ const EditSign = (props: { setMode: Dispatch<SetStateAction<Mode>> }) => {
   if (pageModeDetector())
     return (
       <span className="editSign" onClick={() => setMode("edit")}>
-        ✏️
+        ویرایش ✏️
       </span>
     );
 };
