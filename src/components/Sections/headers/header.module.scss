@@ -58,3 +58,71 @@
     }
   }
 }
+
+.HeaderTwo {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  backdrop-filter: blur(5px);
+  z-index: 99;
+
+  nav {
+    position: relative;
+    width: 100%;
+    margin-inline: auto;
+    max-width: 1140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    padding: 16px;
+
+    .navBrand a {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+
+    * {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+
+  button {
+    padding: 12px 48px;
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  @media (width < 768px) {
+    nav {
+      gap: 16px;
+    }
+
+    ul {
+      * {
+        font-size: 12px;
+      }
+      gap: 14px;
+    }
+
+    button {
+      font-size: 12px;
+      padding: 12px 24px;
+      display: none;
+    }
+  }
+}

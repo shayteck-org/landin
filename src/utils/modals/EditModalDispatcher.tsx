@@ -9,6 +9,7 @@ import EditStaticsticsModal from "./editStatisticsModal";
 import EditWhyUsModal from "./editWhyUsModal";
 import EditResumeModal from "./editResumeModal";
 import EditFooterModal from "./editFooterModal";
+import EditHeaderTwoModal from "./editHeaderTwoModal";
 
 type Props = {
   type:
@@ -20,7 +21,8 @@ type Props = {
     | "statistics"
     | "heroSection"
     | "rating"
-    | "resume";
+    | "resume"
+    | "headerTwo";
   mode: Mode;
   setMode: Dispatch<SetStateAction<Mode>>;
   state: any;
@@ -74,6 +76,15 @@ const EditModalDispatcher = ({
     case "header":
       return (
         <EditHeaderModal
+          mode={mode}
+          setMode={setMode}
+          edit={state}
+          setEdit={setState}
+        />
+      );
+    case "headerTwo":
+      return (
+        <EditHeaderTwoModal
           mode={mode}
           setMode={setMode}
           edit={state}

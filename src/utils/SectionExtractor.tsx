@@ -1,6 +1,7 @@
 import AboutUsOne from "@/components/Sections/aboutUs/AboutUs1";
 import FooterOne from "@/components/Sections/footer/footerOne";
 import HeaderOne from "@/components/Sections/headers/HeaderOne";
+import HeaderTwo from "@/components/Sections/headers/HeaderTwo";
 import HeroSectionOne from "@/components/Sections/heroSections/HeroSectionOne";
 import RatingSectionOne from "@/components/Sections/ratings/rating1";
 import ResumeOne from "@/components/Sections/resume/ResumeOne";
@@ -19,6 +20,8 @@ const SectionExtractor = ({ info }: props) => {
       return <HeroSectionOne components={info.data} />;
     case "00000":
       return <HeaderOne components={info.data} />;
+    case "00001":
+      return <HeaderTwo components={info.data} />;
     case "20001":
       return <ServicesOne components={info.data} />;
     case "30001":

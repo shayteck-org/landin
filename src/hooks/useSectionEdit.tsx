@@ -15,7 +15,8 @@ type editHooks = {
     | "statistics"
     | "heroSection"
     | "rating"
-    | "resume";
+    | "resume"
+    | "headerTwo";
 };
 
 const useSectionEdit = ({ firstData, type }: editHooks) => {
