@@ -10,19 +10,11 @@ import EditWhyUsModal from "./editWhyUsModal";
 import EditResumeModal from "./editResumeModal";
 import EditFooterModal from "./editFooterModal";
 import EditHeaderTwoModal from "./editHeaderTwoModal";
+import { editHooks } from "@/hooks/useSectionEdit";
+import EditHeroSectionTwoModal from "./editHeroTwoModal";
 
 type Props = {
-  type:
-    | "about"
-    | "services"
-    | "why"
-    | "footer"
-    | "header"
-    | "statistics"
-    | "heroSection"
-    | "rating"
-    | "resume"
-    | "headerTwo";
+  type: editHooks["type"];
   mode: Mode;
   setMode: Dispatch<SetStateAction<Mode>>;
   state: any;
@@ -103,6 +95,15 @@ const EditModalDispatcher = ({
     case "heroSection":
       return (
         <EditHeroSectionModal
+          mode={mode}
+          setMode={setMode}
+          edit={state}
+          setEdit={setState}
+        />
+      );
+    case "heroSectionTwo":
+      return (
+        <EditHeroSectionTwoModal
           mode={mode}
           setMode={setMode}
           edit={state}

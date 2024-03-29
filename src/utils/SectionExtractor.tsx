@@ -3,6 +3,7 @@ import FooterOne from "@/components/Sections/footer/footerOne";
 import HeaderOne from "@/components/Sections/headers/HeaderOne";
 import HeaderTwo from "@/components/Sections/headers/HeaderTwo";
 import HeroSectionOne from "@/components/Sections/heroSections/HeroSectionOne";
+import HeroSectionTwo from "@/components/Sections/heroSections/HeroSectionTwo";
 import RatingSectionOne from "@/components/Sections/ratings/rating1";
 import ResumeOne from "@/components/Sections/resume/ResumeOne";
 import ServicesOne from "@/components/Sections/services/ServicesOne";
@@ -18,6 +19,8 @@ const SectionExtractor = ({ info }: props) => {
   switch (info.elementId) {
     case "10001":
       return <HeroSectionOne components={info.data} />;
+    case "10002":
+      return <HeroSectionTwo components={info.data} />;
     case "00000":
       return <HeaderOne components={info.data} />;
     case "00001":

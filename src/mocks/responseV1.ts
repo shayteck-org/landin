@@ -125,6 +125,43 @@ export const responseV1 = [
     },
   },
   {
+    section: 3,
+    elementId: "10002",
+    data: {
+      sectionTitle: { data: { value: "برو حالشو ببر" } },
+      title: {
+        elementId: "01001",
+        data: {
+          value: `سودِو خلق کسب و کار راحت`,
+        },
+      },
+      description: {
+        elementId: "02001",
+        data: {
+          value:
+            "ایجاد کسب و کار در این دنیا نیاز به دانش عمیق در حوضه شبکه و مارتینگ داره , این مورد را به ما بسپارید",
+        },
+      },
+      button: {
+        elementId: "05003",
+        data: {
+          value: "ثبت درخواست",
+          style: {
+            bgColor: "#473BF0",
+          },
+          onClick: 2,
+        },
+      },
+      image: {
+        elementId: "04003",
+        data: {
+          image_url: "/sectionP1.png",
+          value: "لینک به یه صفحه دیگه",
+        },
+      },
+    },
+  },
+  {
     section: 2,
     elementId: "20001",
     data: {

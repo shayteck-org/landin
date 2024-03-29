@@ -3,8 +3,8 @@ import EditModalDispatcher from "@/utils/modals/EditModalDispatcher";
 import EditSign from "@/utils/modals/EditSign";
 import EditSectionModal from "@/utils/modals/editSectionModal";
 import { useEffect, useState } from "react";
-
-type editHooks = {
+  
+export type editHooks = {
   firstData: any;
   type:
     | "about"
@@ -14,6 +14,7 @@ type editHooks = {
     | "header"
     | "statistics"
     | "heroSection"
+    | "heroSectionTwo"
     | "rating"
     | "resume"
     | "headerTwo";

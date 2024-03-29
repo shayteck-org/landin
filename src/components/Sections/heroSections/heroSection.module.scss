@@ -100,3 +100,66 @@
     }
   }
 }
+
+.HeroSectionTwo {
+  padding-top: 80px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  * {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 60px;
+    color: var(--text);
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .sectionTitle {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--red-title);
+  }
+
+  p {
+    font-size: 19px;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin-top: 15px;
+    color: var(--white);
+  }
+
+  @media (width < 968px) {
+    h1 {
+      font-size: 33px;
+    }
+    p {
+      font-size: 13px;
+    }
+
+    button {
+      font-size: 13px;
+    }
+  }
+
+  img {
+    border-radius: 16px;
+    display: block;
+    margin-inline: auto;
+    z-index: 3;
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    max-width: 350px;
+    max-height: 350px;
+  }
+}

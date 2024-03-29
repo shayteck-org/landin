@@ -32,7 +32,6 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      max-width: 350px;
 
       .cardTitle {
         font-size: 24px;
@@ -73,12 +72,6 @@
       }
       p {
         margin-bottom: 12px;
-      }
-    }
-
-    .parent-2 {
-      .card {
-        max-width: 100%;
       }
     }
   }
