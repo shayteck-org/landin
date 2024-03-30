@@ -1,18 +1,17 @@
 import titleGenerator from "@/common/titleGenerator/titleGenerator";
-import routes, { routesTitle } from "@/config/routes/routes";
+import routes, { routesPath, routesTitle } from "@/config/routes/routes";
 import userLogin from "@/services/UserSignIn";
 import userValidate from "@/services/userValidate";
 import { Button, Form, Input, Row } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignInUser = () => {
   document.title = titleGenerator(routesTitle.signin);
+  const router = useNavigate();
 
   const onFinish = async (values: any) => {
     const status = await userLogin(values);
-    if (status) {
-      const validation = await userValidate();
-    }
+    if (status) router(routesPath.createApp);
   };
 
   return (
@@ -25,21 +24,25 @@ const SignInUser = () => {
       }}
     >
       <Form style={{ marginInline: "auto" }} onFinish={onFinish}>
-        <Form.Item name={"username"}>
-          <Input placeholder="username" />
+        <Form.Item
+          rules={[{ required: true, message: "نام کاربری الزامی است." }]}
+          name={"username"}
+        >
+          <Input placeholder="نام کاربری" />
         </Form.Item>
-        <Form.Item name={"password"}>
-          <Input.Password placeholder="username" />
+        <Form.Item
+          rules={[{ required: true, message: "پسورد الزامی است." }]}
+          name={"password"}
+        >
+          <Input.Password placeholder="پسورد" />
         </Form.Item>
         <Form.Item wrapperCol={{ span: 24 }} style={{ marginBottom: 12 }}>
           <Button type="primary" style={{ width: "100%" }} htmlType="submit">
-            sign in
+            ورود
           </Button>
         </Form.Item>
         <Form.Item wrapperCol={{ span: 24 }} style={{ textAlign: "center" }}>
-          <Link to={routes.find((r) => r.title === "signup")?.path || "#"}>
-            Sign up
-          </Link>
+          <Link to={routesPath.signup}>ثبت نام</Link>
         </Form.Item>
       </Form>
     </Row>

@@ -1,5 +1,6 @@
 import storageKeys from "@/config/storageKeys";
-import { clearStorage, storeData } from "@/config/utils/localStorage";
+import { clearStorage, getData, storeData } from "@/config/utils/localStorage";
+import { setTokenForAPI } from "@/services/HTTP";
 import { message } from "antd";
 
 export default function responseLog(
@@ -11,11 +12,12 @@ export default function responseLog(
   if (response.status === 200) {
     if (key === "token") storeData(storageKeys.token, data[key]);
     else if (key === "user") storeData(storageKeys.userInfo, data);
+    else if (key.includes("app")) storeData(storageKeys.appId, data[key]);
     message.success(data.message);
     return true;
   }
 
-  clearStorage();
+  if (key === "token") clearStorage();
   message.error(data.message);
   return false;
 }

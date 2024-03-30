@@ -9,7 +9,7 @@ export default async function userRegister(data: {
 }) {
   try {
     const response = await http.post(addresses.userRegister, data);
-    return responseLog("token", response);
+    return responseLog("", response);
   } catch (error: any) {
     return responseLog("", error.response);
   }

@@ -20,15 +20,21 @@ const ManagerLogin = () => {
       }}
     >
       <Form style={{ marginInline: "auto" }} onFinish={onFinish}>
-        <Form.Item name={"username"}>
-          <Input placeholder="username" />
+        <Form.Item
+          rules={[{ required: true, message: "نام کاربری خود را وارد کنید" }]}
+          name={"username"}
+        >
+          <Input placeholder="نام کاربری" />
         </Form.Item>
-        <Form.Item name={"password"}>
-          <Input.Password placeholder="username" />
+        <Form.Item
+          rules={[{ required: true, message: "پسورد خود را وارد کنید" }]}
+          name={"password"}
+        >
+          <Input.Password placeholder="پسورد" />
         </Form.Item>
         <Form.Item wrapperCol={{ span: 24 }}>
           <Button type="primary" style={{ width: "100%" }} htmlType="submit">
-            login
+            ورود
           </Button>
         </Form.Item>
       </Form>

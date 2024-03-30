@@ -3,5 +3,6 @@ const storageKeys = {
   token: "t",
   refreshToken: "rt",
   locale: "locale",
+  appId: "app",
 };
 export default storageKeys;

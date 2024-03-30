@@ -12,7 +12,9 @@ const http = {
   delete: axios.delete,
 };
 
-const token = getData(storageKeys.token) || false;
-if (token) axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+export function setTokenForAPI() {
+  const token = getData(storageKeys.token) || false;
+  if (token) axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+}
 
 export default http;

@@ -7,6 +7,9 @@ enum addresses {
   adminLogin = "/admin/login",
   adminRegister = "/admin/register",
   userValidate = "/user/validate",
+  //====== app
+  createApp = "/app",
+  getApp = "/app",
 }
 
 export default addresses;

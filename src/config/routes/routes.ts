@@ -3,6 +3,7 @@ import EditPage from "@/pages/EditPage";
 import MainPage from "@/pages/MainPage";
 import SignInUser from "@/pages/SignIn";
 import SignUpUser from "@/pages/Signup";
+import CreateAppForUser from "@/pages/createApp";
 import ManagerLogin from "@/pages/manage";
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
   { title: "manage", path: "/manage", Component: ManagerLogin },
   { title: "signin", path: "/signin", Component: SignInUser },
   { title: "signup", path: "/signup", Component: SignUpUser },
+  { title: "create", path: "/app", Component: CreateAppForUser },
 ];
 export default routes;
 
@@ -22,4 +24,15 @@ export const routesTitle = {
   manage: "پنل مدیریت",
   signin: "ورود کاربر",
   signup: "ثبت نام کاربر",
+  createApp: "ساخت اپلیکیشن",
+};
+
+export const routesPath = {
+  landing: "/",
+  main: "/main",
+  edit: "/edit",
+  manage: "/manage",
+  signin: "/signin",
+  signup: "/signup",
+  createApp: "/app",
 };

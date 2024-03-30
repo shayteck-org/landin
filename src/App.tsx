@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import routes, { routesTitle } from "./config/routes/routes";
+import routes, { routesPath, routesTitle } from "./config/routes/routes";
 import titleGenerator from "./common/titleGenerator/titleGenerator";
 
 function App() {
@@ -16,13 +16,9 @@ function App() {
             borderRadius: 16,
           }}
         >
-          <Link to={routes.find((r) => r.title === "main")?.path || "/"}>
-            رفتن به صفحه نمایش
-          </Link>
+          <Link to={routesPath.main}>رفتن به صفحه نمایش</Link>
           {"  "}|{"  "}
-          <Link to={routes.find((r) => r.title === "edit")?.path || "/"}>
-            رفتن به صفحه ادیت
-          </Link>
+          <Link to={routesPath.edit}>رفتن به صفحه ادیت</Link>
         </div>
         <br />
         <div
@@ -33,13 +29,9 @@ function App() {
             borderRadius: 16,
           }}
         >
-          <Link to={routes.find((r) => r.title === "manage")?.path || "/"}>
-            رفتن به پنل ادمین
-          </Link>
+          <Link to={routesPath.manage}>رفتن به پنل ادمین</Link>
           {"  "}|{"  "}
-          <Link to={routes.find((r) => r.title === "signin")?.path || "/"}>
-            رفتن به پنل کاربران
-          </Link>
+          <Link to={routesPath.signin}>رفتن به پنل کاربران</Link>
         </div>
       </header>
       <main style={{ padding: 20 }}>
