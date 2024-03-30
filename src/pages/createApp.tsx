@@ -1,8 +1,11 @@
+import titleGenerator from "@/common/titleGenerator/titleGenerator";
+import { routesTitle } from "@/config/routes/routes";
 import createApp, { getUsersApp } from "@/services/createApp";
 import { Button, Col, Form, Input, Row } from "antd";
 import { useState } from "react";
 
 const CreateAppForUser = () => {
+  document.title = titleGenerator(routesTitle.createApp);
   const [data, setData] = useState<Partial<any[]>>([]);
   const [loading, toggleLoading] = useState<boolean>(false);
 
