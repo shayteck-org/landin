@@ -5,6 +5,10 @@ import App from "./App";
 import SharedContextProvider from "./provider/context";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import routes from "./config/routes/routes";
+import http from "./services/HTTP";
+
+// active http services
+http;
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
