@@ -1,9 +1,15 @@
 enum addresses {
-  home = "/home",
-  //=== common
   refreshToken = "/refreshToken",
   registerUser = "/users/signup ",
-  loginUser = "/users/signin",
+  //====== auth
+  userLogin = "/user/login",
+  userRegister = "/user/register",
+  adminLogin = "/admin/login",
+  adminRegister = "/admin/register",
+  userValidate = "/user/validate",
+  //====== app
+  createApp = "/app",
+  getApp = "/app",
 }
 
 export default addresses;

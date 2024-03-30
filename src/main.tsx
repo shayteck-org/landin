@@ -5,6 +5,11 @@ import App from "./App";
 import SharedContextProvider from "./provider/context";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import routes from "./config/routes/routes";
+import http, { setTokenForAPI } from "./services/HTTP";
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTokenForAPI();
+});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
