@@ -13,38 +13,43 @@ import useSectionEdit from "@/hooks/useSectionEdit";
 const { Link, Text, Title } = Typography;
 
 interface FooterProps extends SharedSection {
-  components: {
-    from: {
-      data: {
-        value: string;
+  info: {
+    id: string;
+    elementId: string;
+    order: number;
+    data: {
+      from: {
+        data: {
+          value: string;
+        };
       };
-    };
-    sogen: {
-      data: {
-        value: string;
+      sogen: {
+        data: {
+          value: string;
+        };
       };
-    };
-    image: {
-      data: {
-        image_url: string;
+      image: {
+        data: {
+          image_url: string;
+        };
       };
-    };
-    owner: {
-      data: {
-        value: string;
+      owner: {
+        data: {
+          value: string;
+        };
       };
-    };
-    ownerPosition: {
-      data: {
-        value: string;
+      ownerPosition: {
+        data: {
+          value: string;
+        };
       };
     };
   };
 }
 
-const FooterOne: React.FC<FooterProps> = ({ components }) => {
+const FooterOne: React.FC<FooterProps> = ({ info }) => {
   const { EditSign, Editor, setMode, state } = useSectionEdit({
-    firstData: components as FooterProps["components"],
+    firstData: info,
     type: "footer",
   });
   const { from, image, owner, sogen, ownerPosition } = state;

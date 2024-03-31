@@ -7,49 +7,54 @@ import useSectionEdit from "@/hooks/useSectionEdit";
 const { Link, Text, Title } = Typography;
 
 interface HeaderProps extends SharedSection {
-  components: {
-    links: [
-      {
+  info: {
+    id: string;
+    elementId: string;
+    order: number;
+    data: {
+      links: [
+        {
+          data: {
+            id: string;
+            value: string;
+          };
+        },
+        {
+          data: {
+            id: string;
+            value: string;
+          };
+        },
+        {
+          data: {
+            id: string;
+            value: string;
+          };
+        },
+        {
+          data: {
+            value: string;
+            id: string;
+          };
+        }
+      ];
+      button: {
+        elementId: string;
         data: {
-          id: string;
           value: string;
+          style: {
+            bgColor: string;
+          };
+          onClick: onClickModel;
         };
-      },
-      {
-        data: {
-          id: string;
-          value: string;
-        };
-      },
-      {
-        data: {
-          id: string;
-          value: string;
-        };
-      },
-      {
-        data: {
-          value: string;
-          id: string;
-        };
-      }
-    ];
-    button: {
-      elementId: string;
-      data: {
-        value: string;
-        style: {
-          bgColor: string;
-        };
-        onClick: onClickModel;
       };
     };
   };
 }
 
-const HeaderOne: React.FC<HeaderProps> = ({ components }) => {
-  const { EditSign, Editor, mode, setMode, state, setState } = useSectionEdit({
-    firstData: components,
+const HeaderOne: React.FC<HeaderProps> = ({ info }) => {
+  const { EditSign, Editor, setMode, state } = useSectionEdit({
+    firstData: info,
     type: "header",
   });
   const { button, links } = state;

@@ -10,7 +10,7 @@ const MainPage = () => {
   return (
     <div className={styles.section}>
       {responseV1.map((e) => (
-        <div className={styles.container} key={e.section}>
+        <div className={styles.container} key={e.order}>
           <SectionExtractor info={e} />
         </div>
       ))}

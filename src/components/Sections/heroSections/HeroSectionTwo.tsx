@@ -8,47 +8,52 @@ import useSectionEdit from "@/hooks/useSectionEdit";
 const { Link, Text, Title } = Typography;
 
 interface componentsProps extends SharedSection {
-  components: {
-    title: {
-      elementId: string;
-      data: {
-        value: string;
-      };
-    };
-    sectionTitle: {
-      data: {
-        value: string;
-      };
-    };
-    description: {
-      elementId: string;
-      data: {
-        value: string;
-      };
-    };
-    button: {
-      elementId: string;
-      data: {
-        value: string;
-        style: {
-          bgColor: string;
+  info: {
+    elementId: string;
+    order: number;
+    id: string;
+    data: {
+      title: {
+        elementId: string;
+        data: {
+          value: string;
         };
-        onClick: onClickModel;
       };
-    };
-    image: {
-      elementId: string;
-      data: {
-        value: string;
-        image_url: string;
+      sectionTitle: {
+        data: {
+          value: string;
+        };
+      };
+      description: {
+        elementId: string;
+        data: {
+          value: string;
+        };
+      };
+      button: {
+        elementId: string;
+        data: {
+          value: string;
+          style: {
+            bgColor: string;
+          };
+          onClick: onClickModel;
+        };
+      };
+      image: {
+        elementId: string;
+        data: {
+          value: string;
+          image_url: string;
+        };
       };
     };
   };
 }
 
-const HeroSectionTwo: React.FC<componentsProps> = ({ components }) => {
+const HeroSectionTwo: React.FC<componentsProps> = ({ info }) => {
   const { EditSign, Editor, setMode, state } = useSectionEdit({
-    firstData: components as componentsProps["components"],
+    firstData: info,
     type: "heroSectionTwo",
   });
   const { button, title, description, image, sectionTitle } = state;
@@ -57,7 +62,11 @@ const HeroSectionTwo: React.FC<componentsProps> = ({ components }) => {
     <section id="#" className={styles.HeroSectionTwo}>
       <EditSign setMode={setMode} />
       <Image data={image.data} />
-      <Text className={styles.sectionTitle} textType="paragraph" data={sectionTitle.data} />
+      <Text
+        className={styles.sectionTitle}
+        textType="paragraph"
+        data={sectionTitle.data}
+      />
 
       <Title elementId={title.elementId} data={title.data} level={1} />
       <Text textType="paragraph" data={description.data} />

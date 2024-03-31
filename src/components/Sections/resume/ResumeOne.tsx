@@ -11,46 +11,51 @@ import useSectionEdit from "@/hooks/useSectionEdit";
 const { Link, Text, Title } = Typography;
 
 interface componentsProps extends SharedSection {
-  components: {
-    sectionTitle: { elementId: string; data: { value: string } };
-    title: {
-      elementId: string;
-      data: {
-        value: string;
+  info: {
+    id: string;
+    elementId: string;
+    order: number;
+    data: {
+      sectionTitle: { elementId: string; data: { value: string } };
+      title: {
+        elementId: string;
+        data: {
+          value: string;
+        };
       };
+      link: {
+        data: {
+          path: string;
+        };
+      };
+      content: {
+        data: {
+          id: string;
+          title: {
+            data: {
+              value: string;
+            };
+          };
+          description: {
+            data: {
+              value: string;
+            };
+          };
+          image: {
+            data: {
+              value: string;
+              image_url: string;
+            };
+          };
+        };
+      }[];
     };
-    link: {
-      data: {
-        path: string;
-      };
-    };
-    content: {
-      data: {
-        id: string;
-        title: {
-          data: {
-            value: string;
-          };
-        };
-        description: {
-          data: {
-            value: string;
-          };
-        };
-        image: {
-          data: {
-            value: string;
-            image_url: string;
-          };
-        };
-      };
-    }[];
   };
 }
 
-const ResumeOne: React.FC<componentsProps> = ({ components }) => {
+const ResumeOne: React.FC<componentsProps> = ({ info }) => {
   const { EditSign, Editor, mode, setMode, state, setState } = useSectionEdit({
-    firstData: components,
+    firstData: info,
     type: "resume",
   });
   const { sectionTitle, title, content, link } = state;

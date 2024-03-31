@@ -3,39 +3,44 @@ import useSectionEdit from "@/hooks/useSectionEdit";
 import React from "react";
 
 type componentsProps = {
-  components: {
-    content: {
-      data: {
-        id: string;
-        image: {
-          data: {
-            value: string;
-            image_url: string;
+  info: {
+    id: string;
+    elementId: string;
+    order: number;
+    data: {
+      content: {
+        data: {
+          id: string;
+          image: {
+            data: {
+              value: string;
+              image_url: string;
+            };
+          };
+          rate: {
+            data: {
+              star_count: number;
+            };
+          };
+          comment: {
+            data: {
+              value: string;
+            };
+          };
+          author: {
+            data: {
+              value: string;
+            };
           };
         };
-        rate: {
-          data: {
-            star_count: number;
-          };
-        };
-        comment: {
-          data: {
-            value: string;
-          };
-        };
-        author: {
-          data: {
-            value: string;
-          };
-        };
-      };
-    }[];
+      }[];
+    };
   };
 };
 
-const RatingSectionOne: React.FC<componentsProps> = ({ components }) => {
+const RatingSectionOne: React.FC<componentsProps> = ({ info }) => {
   const { EditSign, Editor, mode, setMode, state, setState } = useSectionEdit({
-    firstData: components,
+    firstData: info,
     type: "rating",
   });
   const { content } = state;

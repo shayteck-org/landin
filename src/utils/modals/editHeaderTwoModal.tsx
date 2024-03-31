@@ -227,6 +227,7 @@ const EditHeaderTwoModal: React.FC<editMode> = ({
                       {allChildren?.map(
                         (itemm: { data: { id: string; value: string } }) => (
                           <Tooltip
+                            key={itemm.data.id}
                             color="red"
                             title={`برای ویرایش نام "${itemm.data.value}" کلیک کنید`}
                           >
