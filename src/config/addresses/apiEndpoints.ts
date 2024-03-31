@@ -10,6 +10,9 @@ enum addresses {
   //====== app
   createApp = "/app",
   getApp = "/app",
+  getAppDetails = "/app",
+  setAppSectionsAsArray = "/app/section/array",
+  editSection = "/app/section",
 }
 
 export default addresses;

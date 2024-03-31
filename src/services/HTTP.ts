@@ -10,6 +10,7 @@ const http = {
   put: axios.put,
   post: axios.post,
   delete: axios.delete,
+  patch: axios.patch,
 };
 
 export function setTokenForAPI() {

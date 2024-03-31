@@ -3,15 +3,19 @@ import routes, { routesPath, routesTitle } from "@/config/routes/routes";
 import userLogin from "@/services/UserSignIn";
 import userValidate from "@/services/userValidate";
 import { Button, Form, Input, Row } from "antd";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignInUser = () => {
   document.title = titleGenerator(routesTitle.signin);
+  const [loading, toggleLoading] = useState(false);
   const router = useNavigate();
 
   const onFinish = async (values: any) => {
+    toggleLoading(true);
     const status = await userLogin(values);
     if (status) router(routesPath.createApp);
+    toggleLoading(false);
   };
 
   return (
@@ -37,7 +41,12 @@ const SignInUser = () => {
           <Input.Password placeholder="پسورد" />
         </Form.Item>
         <Form.Item wrapperCol={{ span: 24 }} style={{ marginBottom: 12 }}>
-          <Button type="primary" style={{ width: "100%" }} htmlType="submit">
+          <Button
+            loading={loading}
+            type="primary"
+            style={{ width: "100%" }}
+            htmlType="submit"
+          >
             ورود
           </Button>
         </Form.Item>

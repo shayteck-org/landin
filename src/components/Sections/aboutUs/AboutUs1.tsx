@@ -8,46 +8,51 @@ import useSectionEdit from "@/hooks/useSectionEdit";
 const { Link, Text, Title } = Typography;
 
 type componentsProps = {
-  components: {
-    sectionTitle: {
-      data: {
-        value: string;
+  info: {
+    id: string;
+    elementId: string;
+    order: number;
+    data: {
+      sectionTitle: {
+        data: {
+          value: string;
+        };
       };
-    };
-    descriptionOne: {
-      data: {
-        value: string;
+      descriptionOne: {
+        data: {
+          value: string;
+        };
       };
-    };
-    descriptionTwo: {
-      data: {
-        value: string;
+      descriptionTwo: {
+        data: {
+          value: string;
+        };
       };
-    };
-    imageOne: {
-      data: {
-        value: string;
-        image_url: string;
+      imageOne: {
+        data: {
+          value: string;
+          image_url: string;
+        };
       };
-    };
-    imageTwo: {
-      data: {
-        value: string;
-        image_url: string;
+      imageTwo: {
+        data: {
+          value: string;
+          image_url: string;
+        };
       };
-    };
-    imageThree: {
-      data: {
-        value: string;
-        image_url: string;
+      imageThree: {
+        data: {
+          value: string;
+          image_url: string;
+        };
       };
     };
   };
 };
 
-const AboutUsOne: React.FC<componentsProps> = ({ components }) => {
+const AboutUsOne: React.FC<componentsProps> = ({ info }) => {
   const { EditSign, Editor, setMode, state } = useSectionEdit({
-    firstData: components as componentsProps["components"],
+    firstData: info,
     type: "about",
   });
   const {

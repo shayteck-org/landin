@@ -1,8 +1,12 @@
 import titleGenerator from "@/common/titleGenerator/titleGenerator";
-import { routesTitle } from "@/config/routes/routes";
+import { routesPath, routesTitle } from "@/config/routes/routes";
+import storageKeys from "@/config/storageKeys";
+import { storeData } from "@/config/utils/localStorage";
 import createApp, { getUsersApp } from "@/services/createApp";
+import { setSectionArray } from "@/services/sections";
 import { Button, Col, Form, Input, Row } from "antd";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CreateAppForUser = () => {
   document.title = titleGenerator(routesTitle.createApp);
@@ -12,7 +16,8 @@ const CreateAppForUser = () => {
   const onFinish = async (values: any) => {
     const { app } = values;
     toggleLoading(true);
-    await createApp({ app });
+    const status = await createApp({ app });
+    if (status) await setSectionArray(status);
     toggleLoading(false);
   };
 
@@ -36,7 +41,12 @@ const CreateAppForUser = () => {
       <Col xs={6}>
         <Form onFinish={onFinish}>
           <Form.Item>
-            <Button type="primary" style={{ width: "100%" }} htmlType="submit">
+            <Button
+              loading={loading}
+              type="primary"
+              style={{ width: "100%" }}
+              htmlType="submit"
+            >
               ساخت
             </Button>
           </Form.Item>
@@ -71,12 +81,24 @@ const CreateAppForUser = () => {
                   flex: 1,
                   minWidth: "100%",
                 }}
+                onClick={() => storeData(storageKeys.appId, item.id)}
               >
-                نام اپلیکیشن : {item.name}
+                <Link
+                  state={{ data: { name: item.name, status: item.isActive } }}
+                  to={`${routesPath.site}/?appId=${item.id}`}
+                >
+                  نمایش اپلیکیشن : {item.name}
+                </Link>
                 <br />
-                تعداد سکشن ها : {item._count.section}
+                <Link
+                  style={{ color: "var(--red-title)" }}
+                  state={{ data: { name: item.name, status: item.isActive } }}
+                  to={`${routesPath.editSite}/?appId=${item.id}`}
+                >
+                  ویرایش اپلیکیشن : {item.name}
+                </Link>
                 <br />
-                وضعیت : {item.isActive ? "فعال" : "غیرفعال"}
+                وضعیت : {item._count.section > 0 ? "فعال" : "غیرفعال"}
               </div>
             ))}
           </Row>

@@ -33,7 +33,7 @@ export type SharedAttributes = {
 };
 
 export type SharedSection = {
-  components: any;
+  info: any;
 };
 
 export enum onClickModel {

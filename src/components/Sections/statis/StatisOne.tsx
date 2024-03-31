@@ -7,37 +7,42 @@ import useSectionEdit from "@/hooks/useSectionEdit";
 const { Link, Text, Title } = Typography;
 
 type componentsProps = {
-  components: {
-    firstTitle: {
-      data: { value: string };
-    };
-    secondTitle: {
-      data: { value: string };
-    };
-    thirdTitle: {
-      data: { value: string };
-    };
-    aveScore: {
-      data: {
-        value: string;
+  info: {
+    id: string;
+    elementId: string;
+    order: number;
+    data: {
+      firstTitle: {
+        data: { value: string };
       };
-    };
-    satisfing: {
-      data: {
-        value: string;
+      secondTitle: {
+        data: { value: string };
       };
-    };
-    customerAmout: {
-      data: {
-        value: string;
+      thirdTitle: {
+        data: { value: string };
+      };
+      aveScore: {
+        data: {
+          value: string;
+        };
+      };
+      satisfing: {
+        data: {
+          value: string;
+        };
+      };
+      customerAmout: {
+        data: {
+          value: string;
+        };
       };
     };
   };
 };
 
-const StaticOneSection: React.FC<componentsProps> = ({ components }) => {
+const StaticOneSection: React.FC<componentsProps> = ({ info }) => {
   const { EditSign, Editor, setMode, state } = useSectionEdit({
-    firstData: components as componentsProps["components"],
+    firstData: info,
     type: "statistics",
   });
   const {

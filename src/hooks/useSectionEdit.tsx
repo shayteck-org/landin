@@ -1,11 +1,16 @@
+import { editSections } from "@/services/sections";
 import { Mode } from "@/types/model";
 import EditModalDispatcher from "@/utils/modals/EditModalDispatcher";
 import EditSign from "@/utils/modals/EditSign";
-import EditSectionModal from "@/utils/modals/editSectionModal";
 import { useEffect, useState } from "react";
-  
+
 export type editHooks = {
-  firstData: any;
+  firstData: {
+    data: any;
+    id: string;
+    elementId: string;
+    order: number;
+  };
   type:
     | "about"
     | "services"
@@ -22,19 +27,25 @@ export type editHooks = {
 
 const useSectionEdit = ({ firstData, type }: editHooks) => {
   const [mode, setMode] = useState<Mode>("stable");
-  const [state, setState] = useState<typeof firstData>(firstData);
+  const [time, setTime] = useState<number>(0);
+  const [state, setState] = useState<any>(firstData.data);
 
   useEffect(() => {
+    setTime((p) => p + 1);
+
     async function compair() {
-      if (mode === "stable") {
-        if (state !== firstData) {
-          console.log(state);
-          //   await update()
+      if (time !== 0 && mode === "stable") {
+        if (state !== firstData.data) {
+          await editSections({
+            id: firstData.id,
+            order: firstData.order,
+            data: state,
+          });
         }
       }
     }
     compair();
-  }, [mode, state]);
+  }, [mode]);
 
   return {
     EditSign,

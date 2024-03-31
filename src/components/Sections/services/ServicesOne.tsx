@@ -11,46 +11,51 @@ import { Spin } from "antd";
 const { Link, Text, Title } = Typography;
 
 interface componentsProps extends SharedSection {
-  components: {
-    sectionTitle: { elementId: string; data: { value: string } };
-    title: {
-      elementId: string;
-      data: {
-        value: string;
+  info: {
+    id: string;
+    order: number;
+    elementId: string;
+    data: {
+      sectionTitle: { elementId: string; data: { value: string } };
+      title: {
+        elementId: string;
+        data: {
+          value: string;
+        };
       };
+      content: {
+        data: {
+          id: string;
+          title: {
+            data: {
+              value: string;
+            };
+          };
+          description: {
+            data: {
+              value: string;
+            };
+          };
+          image: {
+            data: {
+              image_url: string;
+            };
+          };
+          link: {
+            data: {
+              path: string;
+            };
+          };
+          style: { bgColor: string };
+        };
+      }[];
     };
-    content: {
-      data: {
-        id: string;
-        title: {
-          data: {
-            value: string;
-          };
-        };
-        description: {
-          data: {
-            value: string;
-          };
-        };
-        image: {
-          data: {
-            image_url: string;
-          };
-        };
-        link: {
-          data: {
-            path: string;
-          };
-        };
-        style: { bgColor: string };
-      };
-    }[];
   };
 }
 
-const ServicesOne: React.FC<componentsProps> = ({ components }) => {
+const ServicesOne: React.FC<componentsProps> = ({ info }) => {
   const { EditSign, Editor, setMode, state } = useSectionEdit({
-    firstData: components,
+    firstData: info,
     type: "services",
   });
 
