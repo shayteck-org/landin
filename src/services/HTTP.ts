@@ -3,7 +3,7 @@ import { getData } from "@/config/utils/localStorage";
 import axios from "axios";
 
 export const BASE_URL = (axios.defaults.baseURL =
-  import.meta.env.VITE_BASE_URL);
+  import.meta.env.VITE_BASE_URL || "http://5.202.75.138:5000/");
 
 const http = {
   get: axios.get,
