@@ -2,6 +2,8 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { message, Upload } from "antd";
 import type { GetProp, UploadProps } from "antd";
+import { setImage } from "@/services/images";
+import { BASE_URL } from "@/services/HTTP";
 
 type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0];
 
@@ -14,11 +16,11 @@ const getBase64 = (img: FileType, callback: (url: string) => void) => {
 const beforeUpload = (file: FileType) => {
   const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
   if (!isJpgOrPng) {
-    message.error("You can only upload JPG/PNG file!");
+    message.error("فرمت مورد قبول png/jpg میباشد.");
   }
   const isLt5M = file.size / 1024 / 1024 < 5;
   if (!isLt5M) {
-    message.error("Image must smaller than 5MB!");
+    message.error("حجم تصویر باید کمتر از 5 مگابایت باشه.");
   }
   return isLt5M && isJpgOrPng;
 };
@@ -36,6 +38,8 @@ const UploadPhoto: React.FC<Props> = ({
   const [loading, setLoading] = useState(false);
 
   const handleChange: Props["onChange"] = (info) => {
+    console.log(info);
+
     if (info.file.status === "uploading") {
       setLoading(true);
       return;
@@ -59,10 +63,9 @@ const UploadPhoto: React.FC<Props> = ({
 
   return (
     <Upload
-      customRequest={(info) => {
-        getBase64(info.file as FileType, (url) => {
-          setImageUrl(url);
-        });
+      customRequest={async (info) => {
+        const status = await setImage(info.file);
+        setImageUrl(`${BASE_URL}images/${status}`);
       }}
       name="avatar"
       listType="picture-card"

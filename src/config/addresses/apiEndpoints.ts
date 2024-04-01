@@ -13,6 +13,8 @@ enum addresses {
   getAppDetails = "/app",
   setAppSectionsAsArray = "/app/section/array",
   editSection = "/app/section",
+  //====== images
+  setImage = "/images",
 }
 
 export default addresses;

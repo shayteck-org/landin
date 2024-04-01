@@ -42,7 +42,7 @@ const CreateAppForUser = () => {
         <Form onFinish={onFinish}>
           <Form.Item>
             <Button
-              loading={loading}
+              disabled={loading}
               type="primary"
               style={{ width: "100%" }}
               htmlType="submit"

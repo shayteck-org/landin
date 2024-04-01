@@ -3,11 +3,11 @@ import { responseV1 } from "@/mocks/responseV1";
 import { getAppDetails } from "@/services/createApp";
 import SectionExtractor from "@/utils/SectionExtractor";
 import { Row, Spin } from "antd";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 
 const EditUserApp = () => {
-  const [loading, toggleLoading] = useState(false);
+  const [loading, toggleLoading] = useState(true);
   const [section, setSection] = useState<any[]>([]);
   const [appName, setAppName] = useState<string>("");
 
@@ -16,34 +16,37 @@ const EditUserApp = () => {
   const appId = query[0].get("appId");
   document.title = `ویرایش سایت ${state?.data?.name || "شما"}`;
 
-  useLayoutEffect(() => {
-    toggleLoading(true);
+  useEffect(() => {
     (async () => {
       const status = await getAppDetails(appId || "error");
       if (status) {
         setAppName(state?.data.name || status.name);
-        setSection(status.section);
+        const reorderedData = status.section.sort(
+          (a: any, b: any) => a.order - b.order
+        );
+        setSection(reorderedData);
       }
+      toggleLoading(false);
     })();
-    toggleLoading(false);
   }, []);
 
   return (
     <>
-      {loading && (
+      {loading ? (
         <Spin
           tip={"لطفا شکیبا باشید"}
           style={{ backgroundColor: "#16335d43", color: "black" }}
           fullscreen
         />
+      ) : (
+        <div className={styles.section}>
+          {section.map((e) => (
+            <div className={styles.container} key={e.order}>
+              <SectionExtractor info={e} />
+            </div>
+          ))}
+        </div>
       )}
-      <div className={styles.section}>
-        {section.map((e) => (
-          <div className={styles.container} key={e.order}>
-            <SectionExtractor info={e} />
-          </div>
-        ))}
-      </div>
     </>
   );
 };
