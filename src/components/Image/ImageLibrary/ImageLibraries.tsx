@@ -1,12 +1,31 @@
-import { Row } from "antd";
-import { Dispatch, MouseEvent, SetStateAction } from "react";
-import { Fragment } from "react/jsx-runtime";
+import { BASE_URL } from "@/services/HTTP";
+import { getGallery } from "@/services/galleries";
+import { Row, Spin } from "antd";
+import {
+  Dispatch,
+  MouseEvent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 export default function ImageLibraryByType(props: {
   type: "about" | "service" | "why";
   setData: Dispatch<SetStateAction<{ modal: boolean; id: string; data: any }>>;
 }) {
+  const [loading, toggleLoading] = useState(true);
   const { setData, type } = props;
+  const [array, setArray] = useState<any[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      toggleLoading(true);
+      const images = await getGallery(type);
+      if (images) setArray(images);
+      console.log(images);
+      toggleLoading(false);
+    })();
+  }, []);
 
   const onClick = (e: MouseEvent<HTMLImageElement>) => {
     let imageUrl = e.currentTarget.src;
@@ -23,6 +42,8 @@ export default function ImageLibraryByType(props: {
       },
     }));
   };
+
+  if (loading) return <Spin />;
 
   switch (type) {
     case "why": {
@@ -59,16 +80,15 @@ export default function ImageLibraryByType(props: {
             gap: 8,
           }}
         >
-          {Array.from({ length: 12 }).map((image, index: number) => (
+          {array.map((image, index: number) => (
             <img
               style={{
                 cursor: "pointer",
-                transform: `rotate(${index * 15}deg)`,
               }}
               onClick={(e) => onClick(e)}
               width={60}
               height={60}
-              src="/sectionP1.png"
+              src={`${BASE_URL}images/${image}`}
               alt="images"
               key={index}
             />

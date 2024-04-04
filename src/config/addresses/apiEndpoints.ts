@@ -15,6 +15,8 @@ enum addresses {
   editSection = "/app/section",
   //====== images
   setImage = "/images",
+  //====== gallery
+  makeGallery = "/gallery",
 }
 
 export default addresses;
