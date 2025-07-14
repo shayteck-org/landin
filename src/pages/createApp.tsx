@@ -14,9 +14,9 @@ const CreateAppForUser = () => {
   const [loading, toggleLoading] = useState<boolean>(false);
 
   const onFinish = async (values: any) => {
-    const { app } = values;
+    const { app , domain } = values;
     toggleLoading(true);
-    const status = await createApp({ app });
+    const status = await createApp({ app , domain });
     if (status) await setSectionArray(status);
     toggleLoading(false);
   };
@@ -55,6 +55,12 @@ const CreateAppForUser = () => {
             name={"app"}
           >
             <Input placeholder="نام اپلیکیشن را وارد کنید" />
+          </Form.Item>
+          <Form.Item
+            rules={[{ required: true, message: "ساب دامنه اپلیکیشن را وارد کنید" }]}
+            name={"domain"}
+          >
+            <Input placeholder="ساب دامنه اپلیکیشن را وارد کنید" />
           </Form.Item>
         </Form>
       </Col>

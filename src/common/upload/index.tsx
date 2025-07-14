@@ -65,7 +65,7 @@ const UploadPhoto: React.FC<Props> = ({
     <Upload
       customRequest={async (info) => {
         const status = await setImage(info.file);
-        setImageUrl(`${BASE_URL}images/${status}`);
+        setImageUrl(`${BASE_URL}Core/landing/images/${status}`);
       }}
       name="avatar"
       listType="picture-card"

@@ -88,7 +88,7 @@ export default function ImageLibraryByType(props: {
               onClick={(e) => onClick(e)}
               width={60}
               height={60}
-              src={`${BASE_URL}images/${image}`}
+              src={`${BASE_URL}Core/landing/images/${image}`}
               alt="images"
               key={index}
             />

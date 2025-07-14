@@ -1,22 +1,22 @@
 enum addresses {
-  refreshToken = "/refreshToken",
-  registerUser = "/users/signup ",
+  refreshToken = "/User/refreshToken",
+  registerUser = "/User/users/signup ",
   //====== auth
-  userLogin = "/user/login",
-  userRegister = "/user/register",
-  adminLogin = "/admin/login",
-  adminRegister = "/admin/register",
-  userValidate = "/user/validate",
+  userLogin = "/User/user/login",
+  userRegister = "/User/user/register",
+  adminLogin = "/User/admin/user/login",
+  adminRegister = "/User/admin/user/register",
+  userValidate = "/User/user/validate",
   //====== app
-  createApp = "/app",
-  getApp = "/app",
-  getAppDetails = "/app",
-  setAppSectionsAsArray = "/app/section/array",
-  editSection = "/app/section",
+  createApp = "/Core/landing/app",
+  getApp = "/Core/landing/app",
+  getAppDetails = "/Core/landing/app",
+  setAppSectionsAsArray = "/Core/landing/app/section/array",
+  editSection = "/Core/landing/app/section",
   //====== images
-  setImage = "/images",
+  setImage = "/Core/landing/images",
   //====== gallery
-  makeGallery = "/gallery",
+  makeGallery = "/Core/landing/gallery",
 }
 
 export default addresses;
