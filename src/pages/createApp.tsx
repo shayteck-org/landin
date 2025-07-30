@@ -14,16 +14,16 @@ const CreateAppForUser = () => {
   const [loading, toggleLoading] = useState<boolean>(false);
 
   const onFinish = async (values: any) => {
-    const { app, domain, aipormpt }: {
+    const { app, domain, aiprompt }: {
       app: string;
       domain: string;
-      aipormpt?: string;
+      aiprompt?: string;
     } = values;
 
     toggleLoading(true);
-    const status = await createApp({ app, domain, aipormpt});
+    const status = await createApp({ app, domain, aiprompt});
 
-    if (!aipormpt || aipormpt.trim() === "") {
+    if (!aiprompt || aiprompt.trim() === "") {
       if (status) await setSectionArray(status);
     }
 
@@ -73,7 +73,7 @@ const CreateAppForUser = () => {
           </Form.Item>
           <Form.Item
             rules={[{ required: false }]}
-            name={"aipormpt"}
+            name={"aiprompt"}
           >
             <Input.TextArea
               placeholder="توضیحات اپلیکیشن (پرامپت برای هوش مصنوعی)"
