@@ -2,11 +2,11 @@ import addresses from "@/config/addresses/apiEndpoints";
 import http, { setTokenForAPI } from "./HTTP";
 import responseLog from "@/common/dataLog/dataLogResponse";
 
-export default async function createApp(values: { app: string , domain: string }) {
+export default async function createApp(values: { app: string, domain: string, aipormpt: string | undefined }) {
   setTokenForAPI();
 
   try {
-    const response = await http.post(addresses.createApp, { name: values.app , domain: values.domain });
+    const response = await http.post(addresses.createApp, { name: values.app, domain: values.domain, aipormpt: values.aipormpt });
     responseLog("app.id", response);
     return response.data.app.id;
   } catch (error: any) {

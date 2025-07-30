@@ -14,10 +14,19 @@ const CreateAppForUser = () => {
   const [loading, toggleLoading] = useState<boolean>(false);
 
   const onFinish = async (values: any) => {
-    const { app , domain } = values;
+    const { app, domain, aipormpt }: {
+      app: string;
+      domain: string;
+      aipormpt?: string;
+    } = values;
+
     toggleLoading(true);
-    const status = await createApp({ app , domain });
-    if (status) await setSectionArray(status);
+    const status = await createApp({ app, domain, aipormpt});
+
+    if (!aipormpt || aipormpt.trim() === "") {
+      if (status) await setSectionArray(status);
+    }
+
     toggleLoading(false);
   };
 
@@ -61,6 +70,15 @@ const CreateAppForUser = () => {
             name={"domain"}
           >
             <Input placeholder="ساب دامنه اپلیکیشن را وارد کنید" />
+          </Form.Item>
+          <Form.Item
+            rules={[{ required: false }]}
+            name={"aipormpt"}
+          >
+            <Input.TextArea
+              placeholder="توضیحات اپلیکیشن (پرامپت برای هوش مصنوعی)"
+              rows={4}
+            />
           </Form.Item>
         </Form>
       </Col>
